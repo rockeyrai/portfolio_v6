@@ -1,4 +1,4 @@
-import { db, User } from "@/app/lib/db";
+import { db, User } from "@/lib/db";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface UserState {

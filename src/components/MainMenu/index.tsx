@@ -1,12 +1,24 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./MenuModule.module.css";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import SplitText from "gsap/SplitText";
 import Lenis from "@studio-freight/lenis";
+import GlassRadioGroup, {
+  GlassOption,
+} from "@/utils/components/radioButton/GlassRadioGroup";
+import { useTheme } from "@/provider/ThemeProvider";
+
+const plans: GlassOption[] = [
+  { label: "light", value: "light" },
+  { label: "dark", value: "dark" },
+  { label: "midnight", value: "midnight" },
+];
 
 const Menu: React.FC = () => {
+  const { theme, setTheme } = useTheme();
+
   useEffect(() => {
     gsap.registerPlugin(CustomEase, SplitText);
     CustomEase.create("hop", ".87,0,.13,1");
@@ -19,7 +31,7 @@ const Menu: React.FC = () => {
     requestAnimationFrame(raf);
 
     const textContainers = document.querySelectorAll<HTMLElement>(
-      `.${styles.menuCol}`
+      `.${styles.menuCol}`,
     );
     const splitTextByContainer: any[][] = [];
 
@@ -41,28 +53,28 @@ const Menu: React.FC = () => {
     });
 
     const container = document.querySelector<HTMLElement>(
-      `.${styles.menuContainers}`
+      `.${styles.menuContainers}`,
     );
     const menuToggleBtn = document.querySelector<HTMLElement>(
-      `.${styles.menuToggleBtn}`
+      `.${styles.menuToggleBtn}`,
     );
     const menuOverlay = document.querySelector<HTMLElement>(
-      `.${styles.menuOverlay}`
+      `.${styles.menuOverlay}`,
     );
     const menuOverlayContainer = document.querySelector<HTMLElement>(
-      `.${styles.menuOverlayContent}`
+      `.${styles.menuOverlayContent}`,
     );
     const menuMediaWrapper = document.querySelector<HTMLElement>(
-      `.${styles.menuMediaWrapper}`
+      `.${styles.menuMediaWrapper}`,
     );
     const copyContainers = document.querySelectorAll<HTMLElement>(
-      `.${styles.menuCol}`
+      `.${styles.menuCol}`,
     );
     const menuToggleLabel = document.querySelector<HTMLElement>(
-      `.${styles.menuToggleLabel} p`
+      `.${styles.menuToggleLabel} p`,
     );
     const hamburgerIcon = document.querySelector<HTMLElement>(
-      `.${styles.menuHamburgerIcon}`
+      `.${styles.menuHamburgerIcon}`,
     );
 
     let isMenuOpen = false;
@@ -89,7 +101,7 @@ const Menu: React.FC = () => {
               duration: 1,
               ease: "hop",
             },
-            "<"
+            "<",
           )
           .to(
             menuOverlay,
@@ -98,7 +110,7 @@ const Menu: React.FC = () => {
               duration: 1,
               ease: "hop",
             },
-            "<"
+            "<",
           )
           .to(
             menuOverlayContainer,
@@ -107,7 +119,7 @@ const Menu: React.FC = () => {
               duration: 1,
               ease: "hop",
             },
-            "<"
+            "<",
           )
           .to(
             menuMediaWrapper,
@@ -117,7 +129,7 @@ const Menu: React.FC = () => {
               ease: "power2.out",
               delay: 0.5,
             },
-            "<"
+            "<",
           );
 
         splitTextByContainer.forEach((containerSplits) => {
@@ -131,7 +143,7 @@ const Menu: React.FC = () => {
               ease: "hop",
               stagger: -0.075,
             },
-            -0.15
+            -0.15,
           );
         });
 
@@ -159,7 +171,7 @@ const Menu: React.FC = () => {
               duration: 1,
               ease: "hop",
             },
-            "<"
+            "<",
           )
           .to(
             menuOverlayContainer,
@@ -168,7 +180,7 @@ const Menu: React.FC = () => {
               duration: 1,
               ease: "hop",
             },
-            "<"
+            "<",
           )
           .to(
             menuToggleLabel,
@@ -177,7 +189,7 @@ const Menu: React.FC = () => {
               duration: 1,
               ease: "hop",
             },
-            "<"
+            "<",
           )
           .to(
             copyContainers,
@@ -186,7 +198,7 @@ const Menu: React.FC = () => {
               duration: 1,
               ease: "hop",
             },
-            "<"
+            "<",
           );
 
         tl.call(() => {
@@ -207,7 +219,7 @@ const Menu: React.FC = () => {
     });
 
     return () => {
-      menuToggleBtn?.removeEventListener("click", () => {});
+      menuToggleBtn?.removeEventListener("click", () => { });
     };
   }, []);
 
@@ -220,12 +232,12 @@ const Menu: React.FC = () => {
           </a>
         </div>
         <div className={styles.menuToggleBtn}>
-          <div className={styles.menuToggleLabel}>
+          {/* <div className={styles.menuToggleLabel}>
             <p>Menu</p>
-          </div>
+          </div> */}
           <div className={styles.menuHamburgerIcon}>
-            <span></span>
-            <span></span>
+            <span className="bg-bg"></span>
+            <span className="bg-bg"></span>
           </div>
         </div>
       </div>
@@ -263,6 +275,11 @@ const Menu: React.FC = () => {
                 <div className={styles.menuTag}>
                   <a href="#">web Animations 3</a>
                 </div>
+                <GlassRadioGroup
+                  options={plans}
+                  value={theme}
+                  onChange={(val) => setTheme(val as any)}
+                />
               </div>
             </div>
             <div className={styles.menuFooter}>

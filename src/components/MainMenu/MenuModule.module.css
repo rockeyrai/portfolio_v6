@@ -48,14 +48,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--hamburger-icon-border);
+  border: 1px solid var(--text);
   border-radius: 100%;
 }
 .menuHamburgerIcon span {
   position: absolute;
   width: 15px;
   height: 1.25px;
-  background-color: var(--fg);
+  background-color: var(--text);
   transition: all 0.75s cubic-bezier(0.87, 0, 0.13, 1);
   transform-origin: center;
   will-change: transform;
