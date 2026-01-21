@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowRight, Menu } from "lucide-react";
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
@@ -60,11 +59,7 @@ const HeroOne: React.FC = () => {
           selector: `.${styles.hero1Footer} p`,
           type: "lines",
         },
-        {
-          key: "btnLabels",
-          selector: `.${styles.hero1BtnLabel} span`,
-          type: "lines",
-        },
+
       ];
 
       const splits = createSplitTexts(splitElements);
@@ -77,14 +72,10 @@ const HeroOne: React.FC = () => {
           splits.headerChars.chars,
           splits.heroFooterH3.lines,
           splits.heroFooterP.lines,
-          splits.btnLabels.lines,
         ],
         { y: "100%" }
       );
-      gsap.set(`.${styles.hero1BtnIcon}`, {
-        clipPath: "circle(0% at 50% 50%)",
-      });
-      gsap.set(`.${styles.hero1Btn}`, { scale: 0 });
+
 
       function animateProgress(duration = 4) {
         const tl = gsap.timeline();
@@ -195,29 +186,8 @@ const HeroOne: React.FC = () => {
             ease: "power4.out",
           },
           "-=1.5"
-        )
-        .to(`.${styles.hero1Btn}`, {
-          scale: 1,
-          duration: 1,
-          ease: "power4.out",
-          onStart: () => {
-            gsap
-              .timeline()
-              .to(`.${styles.hero1BtnIcon}`, {
-                clipPath: "circle(100% at 50% 50%)",
-                duration: 1,
-                ease: "power2.out",
-                delay: -1.25,
-              })
-              .to(splits.btnLabels.lines, {
-                y: 0,
-                duration: 1,
-                ease: "power4.out",
-                delay: -1.25,
-              });
-          },
-        });
-    });
+        )   
+      });
   }, []);
 
   return (
@@ -246,26 +216,6 @@ const HeroOne: React.FC = () => {
             <div className={styles.hero1Content}>
               <div className={styles.hero1Header}>
                 <h1>Obsidian</h1>
-              </div>
-              {/* <div className={styles.contactHeroBtn}>
-                <div className={styles.hero1Btn}>
-                  <div className={styles.hero1BtnLabel}>
-                    <span>Contact</span>
-                  </div>
-                  <div className={styles.hero1BtnIcon}>
-                    <ArrowRight className={styles.hero1ArrowForwardSharp} />
-                  </div>
-                </div>
-              </div> */}
-              <div className={styles.hero1MenuHeroBtn}>
-                <div className={styles.hero1Btn}>
-                  <div className={styles.hero1BtnLabel}>
-                    <span>Contact</span>
-                  </div>
-                  <div className={styles.hero1BtnIcon}>
-                    <ArrowRight className={styles.hero1MenuSharp} />
-                  </div>
-                </div>
               </div>
               <div className={styles.hero1Footer}>
                 <h3>Space defined through light and silence</h3>

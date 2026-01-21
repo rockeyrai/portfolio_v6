@@ -10,6 +10,7 @@ export default function ThemeSwitcher() {
 
       <Menu />
       <HeroOne/>
+      <div className="h-screen bg-amber-600"/>
     </div>
   );
 }

@@ -9,6 +9,7 @@ import GlassRadioGroup, {
   GlassOption,
 } from "@/utils/components/radioButton/GlassRadioGroup";
 import { useTheme } from "@/provider/ThemeProvider";
+import { ArrowRight } from "lucide-react";
 
 const plans: GlassOption[] = [
   { label: "light", value: "light" },
@@ -241,6 +242,16 @@ const Menu: React.FC = () => {
           </div>
         </div>
       </div>
+                 <div className={styles.hero1MenuHeroBtn}>
+                <div className={styles.hero1Btn}>
+                  <div className={styles.hero1BtnLabel}>
+                    <span>Contact</span>
+                  </div>
+                  <div className={styles.hero1BtnIcon}>
+                    <ArrowRight className={styles.hero1MenuSharp} />
+                  </div>
+                </div>
+              </div>
       <div className={styles.menuOverlay}>
         <div className={styles.menuOverlayContent}>
           <div className={styles.menuMediaWrapper}>
