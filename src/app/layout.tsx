@@ -4,6 +4,7 @@ import "./globals.css";
 import { cookies } from "next/headers";
 import { Providers } from "@/providers";
 import Menu from "@/components/MainMenu";
+import Preloader from "@/components/preloader/preloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,9 +36,10 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-                <Menu />
-          {children}</Providers>
-
+          <Menu />
+          <Preloader/>
+          {children}
+        </Providers>
       </body>
     </html>
   );

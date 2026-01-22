@@ -9,7 +9,7 @@ export default function ThemeSwitcher() {
     <div className="bg-bg text-text">
 
       <HeroOne/>
-      <div className="h-screen bg-amber-600"/>
+      <div className="h-screen bg-amber-500"/>
     </div>
   );
 }
