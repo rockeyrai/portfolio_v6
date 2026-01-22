@@ -7,7 +7,7 @@
   height: 100vh;
   pointer-events: none;
   overflow: hidden;
-  z-index: 2;
+  z-index: var(--zIndex-level-3);
 }
 .menuBar {
   position: fixed;
@@ -19,8 +19,7 @@
   justify-content: space-between;
   align-items: center;
   pointer-events: all;
-  color: var(--menu-fg-secondary);
-  z-index: 2;
+  z-index: var(--zIndex-level-3);
 }
 .menuLogo {
   width: 2rem;
@@ -119,10 +118,10 @@
   height: 100vh;
   color: var(--fg);
   overflow: hidden;
-  z-index: 1;
+  z-index: var(--zIndex-level-4);
 }
 .menuOverlay {
-  background-color: var(--menu-bg);
+  background-color: var(--base-200);
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   will-change: clip-path;
 }
@@ -174,10 +173,7 @@
   font-weight: 500;
   line-height: 1.2;
 }
-.menuTag a,
-.menuFooter p {
-  color: var(--menu-fg-secondary);
-}
+
 .line {
   position: relative;
   will-change: transform;

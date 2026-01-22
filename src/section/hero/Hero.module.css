@@ -81,7 +81,7 @@
 
 .hero1PreloaderProgress {
   background-color: var(--base-200);
-  z-index: 1;
+  z-index: var(--zIndex-level-2);
   will-change: opacity;
 }
 
@@ -105,7 +105,7 @@
   width: 100%;
   text-align: center;
   mix-blend-mode: difference;
-  z-index: 2;
+  z-index: var(--zIndex-level-1);
 }
 
 .hero1PreloaderLogo h1 {
@@ -121,11 +121,11 @@
   mask: linear-gradient(var(--base-300), var(--base-300)), url("/hero/capsule.svg") center/50% no-repeat;
   mask-composite: subtract;
   will-change: transform;
-  z-index: 1;
+  z-index: var(--zIndex-level-2);
 }
 
 .hero1PreloaderContent {
-  z-index: 2;
+  z-index: var(--zIndex-level-1);
 }
 
 .hero1PreloaderFooter {

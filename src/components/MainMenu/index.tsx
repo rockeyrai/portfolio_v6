@@ -220,7 +220,7 @@ const Menu: React.FC = () => {
     });
 
     return () => {
-      menuToggleBtn?.removeEventListener("click", () => { });
+      menuToggleBtn?.removeEventListener("click", () => {});
     };
   }, []);
 
@@ -233,25 +233,23 @@ const Menu: React.FC = () => {
           </a>
         </div>
         <div className={styles.menuToggleBtn}>
-          {/* <div className={styles.menuToggleLabel}>
-            <p>Menu</p>
-          </div> */}
+
           <div className={styles.menuHamburgerIcon}>
             <span className="bg-bg"></span>
             <span className="bg-bg"></span>
           </div>
         </div>
       </div>
-                 <div className={styles.hero1MenuHeroBtn}>
-                <div className={styles.hero1Btn}>
-                  <div className={styles.hero1BtnLabel}>
-                    <span>Contact</span>
-                  </div>
-                  <div className={styles.hero1BtnIcon}>
-                    <ArrowRight className={styles.hero1MenuSharp} />
-                  </div>
-                </div>
-              </div>
+      <div className={styles.hero1MenuHeroBtn}>
+        <div className={styles.hero1Btn}>
+          <div className={styles.hero1BtnLabel}>
+            <span>Contact</span>
+          </div>
+          <div className={styles.hero1BtnIcon}>
+            <ArrowRight className={styles.hero1MenuSharp} />
+          </div>
+        </div>
+      </div>
       <div className={styles.menuOverlay}>
         <div className={styles.menuOverlayContent}>
           <div className={styles.menuMediaWrapper}>

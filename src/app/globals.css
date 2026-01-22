@@ -8,6 +8,10 @@
   --base-100: #181717;
   --base-200: #292725;
   --base-300: #f5f5f5;
+  --zIndex-level-1:9999;
+  --zIndex-level-2:8888;
+  --zIndex-level-3:7777;
+  --zIndex-level-4:6666;
 }
 
 /* Dark */
@@ -63,4 +67,5 @@ body {
   .border-card {
     border-color: var(--card);
   }
+
 }
