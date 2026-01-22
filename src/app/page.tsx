@@ -1,6 +1,7 @@
 "use client";
 
 import Menu from "@/components/MainMenu";
+import Feature10 from "@/section/experions";
 import HeroOne from "@/section/hero";
 
 export default function ThemeSwitcher() {
@@ -9,7 +10,7 @@ export default function ThemeSwitcher() {
     <div className="bg-bg text-text">
 
       <HeroOne/>
-      <div className="h-screen bg-amber-500"/>
+      <Feature10/>
     </div>
   );
 }
