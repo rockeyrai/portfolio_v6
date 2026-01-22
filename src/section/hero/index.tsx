@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import styles from "./Hero.module.css";
+import { animationController } from "@/lib/animation/preloadHero";
 
 const HeroOne: React.FC = () => {
   const root = useRef<HTMLDivElement>(null);
@@ -71,7 +72,7 @@ const HeroOne: React.FC = () => {
           scale: 1.3,
         });
 
-        const tl = gsap.timeline({ delay: 5 });
+        const tl = gsap.timeline({ delay: 2 });
 
         tl.to(splits.headerChars.chars, {
           y: 0,
@@ -98,8 +99,9 @@ const HeroOne: React.FC = () => {
             },
             "-=0.8",
           );
+        animationController.setHeroTimeline(tl);
       });
-    });
+    }, root);
     return () => ctx.revert(); // cleanup
   }, []);
 

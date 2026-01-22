@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import styles from "./Preloader.module.css";
+import { animationController } from "@/lib/animation/preloadHero";
 
 const Preloader: React.FC = () => {
   useEffect(() => {
@@ -44,22 +45,20 @@ const Preloader: React.FC = () => {
           selector: `.${styles.hero1PreloaderFooter} p`,
           type: "lines",
         },
- 
       ];
 
       const splits = createSplitTexts(splitElements);
 
       // Initial states
       gsap.set(splits.logoChars.chars, { x: "100%" });
-      gsap.set(
-        [
-          splits.footerLines.lines,
-        ],
-        { y: "100%" },
-      );
+      gsap.set([splits.footerLines.lines], { y: "100%" });
 
       function animateProgress(duration = 4) {
-        const tl = gsap.timeline();
+        const tl = gsap.timeline({
+          onComplete: () => {
+            animationController.playHero(); //  trigger hero
+          },
+        });
         const counterSteps = 5;
         let currentProgress = 0;
 
@@ -147,8 +146,7 @@ const Preloader: React.FC = () => {
             ease: "power3.out",
           },
           "<",
-        )
-
+        );
     });
   }, []);
 
@@ -169,7 +167,6 @@ const Preloader: React.FC = () => {
           </p>
         </div>
       </div>
-
     </>
   );
 };
