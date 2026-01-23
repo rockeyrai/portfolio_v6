@@ -6,7 +6,7 @@ import SplitType from "split-type";
 import Lenis from "@studio-freight/lenis";
 import styles from "./feature.module.css"; // ✅ Import CSS module
 
-const Feature11: React.FC = () => {
+const TeachStach: React.FC = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -142,4 +142,4 @@ const Feature11: React.FC = () => {
   );
 };
 
-export default Feature11;
+export default TeachStach;

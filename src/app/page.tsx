@@ -1,8 +1,8 @@
 "use client";
 
-import Menu from "@/components/MainMenu";
-import Feature10 from "@/section/experions";
+import Experience from "@/section/experience";
 import HeroOne from "@/section/hero";
+import TeachStach from "@/section/techStach";
 
 export default function ThemeSwitcher() {
 
@@ -10,7 +10,8 @@ export default function ThemeSwitcher() {
     <div className="bg-bg text-text">
 
       <HeroOne/>
-      <Feature10/>
+      <Experience/>
+      <TeachStach/>
     </div>
   );
 }

@@ -1,3 +1,8 @@
+.containers{
+  overflow: hidden;
+  width:100%;
+}
+
 
 .section {
   width: 100%;

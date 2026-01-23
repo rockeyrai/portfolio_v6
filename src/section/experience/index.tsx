@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
-import styles from "./Feature10.module.css";
+import styles from "./Experience.module.css";
 import SplitType from "split-type";
 
 const serviceTexts = [
@@ -38,7 +38,7 @@ const serviceImages = [
   "exp/image5.jpg",
 ];
 
-const Feature10: React.FC = () => {
+const Experience: React.FC = () => {
   const stickyRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement[]>([]);
   const serviceImgRef = useRef<HTMLDivElement>(null);
@@ -254,4 +254,4 @@ const Feature10: React.FC = () => {
   );
 };
 
-export default Feature10;
+export default Experience;
