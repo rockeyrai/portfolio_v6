@@ -12,6 +12,7 @@ export default function ThemeSwitcher() {
       <HeroOne/>
       <Experience/>
       <TeachStach/>
+      <div className="h-screen bg-amber-300"/>
     </div>
   );
 }

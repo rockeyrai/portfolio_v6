@@ -4,9 +4,39 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import Lenis from "@studio-freight/lenis";
-import styles from "./feature.module.css"; // ✅ Import CSS module
+import styles from "./feature.module.css";
 
 const TeachStach: React.FC = () => {
+  const marquees = [
+    {
+      title: "MY",
+      images: [
+        "hero/image2.jpg",
+        "hero/image3.jpg",
+        "hero/image1.jpg",
+        "hero/image5.jpg",
+      ],
+    },
+    {
+      title: "TECH",
+      images: [
+        "hero/image2.jpg",
+        "hero/image3.jpg",
+        "hero/image1.jpg",
+        "hero/image5.jpg",
+      ],
+    },
+    {
+      title: "STACK",
+      images: [
+        "hero/image2.jpg",
+        "hero/image3.jpg",
+        "hero/image1.jpg",
+        "hero/image5.jpg",
+      ],
+    },
+  ];
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -32,37 +62,43 @@ const TeachStach: React.FC = () => {
             end: "top top",
             scrub: true,
           },
-        }
+        },
       );
     };
 
     // Animate each marquee container
     const marqueeContainers = document.querySelectorAll(
-      `.${styles["marquee-container"]}`
+      `.${styles["marquee-container"]}`,
     );
 
     marqueeContainers.forEach((container, index) => {
-      const start = index % 2 === 0 ? "0%" : "0%";
-      const end = index % 2 === 0 ? "10%" : "-15%";
-
       const marquee = container.querySelector(`.${styles.marquee}`);
       const words = marquee?.querySelectorAll(`.${styles.item} h1`);
 
-      if (marquee) {
-        gsap.fromTo(
-          marquee,
-          { x: start },
-          {
-            x: end,
-            scrollTrigger: {
-              trigger: container,
-              start: "top bottom",
-              end: "150% top",
-              scrub: true,
-            },
-          }
-        );
-      }
+      const moveRight = index % 2 === 0;
+
+      // how far content can safely move without showing gaps
+      const START_OFFSET = 6; // tweak 6–12
+      const MOVE_DISTANCE = 10;
+
+      gsap.fromTo(
+        marquee,
+        {
+          xPercent: moveRight ? -START_OFFSET : START_OFFSET,
+        },
+        {
+          xPercent: moveRight
+            ? -START_OFFSET + MOVE_DISTANCE
+            : START_OFFSET - MOVE_DISTANCE,
+          ease: "none",
+          scrollTrigger: {
+            trigger: container,
+            start: "top bottom",
+            end: "150% top",
+            scrub: true,
+          },
+        },
+      );
 
       words?.forEach((word) => {
         const chars = Array.from(word.querySelectorAll(".char"));
@@ -99,44 +135,42 @@ const TeachStach: React.FC = () => {
 
   return (
     <div className={styles.containers}>
-      <section className={`${styles.hero} ${styles.section}`}>
-        <img src="hero/image1.jpg" alt="hero" />
-      </section>
-
-      <section className={`${styles.about} ${styles.section}`}>
-        <p>set to set up this animation</p>
-      </section>
-
       <section className={`${styles.marquees} ${styles.section}`}>
-        {[1, 2, 3].map((num) => (
-          <div className={styles["marquee-container"]} key={num}>
-            <div className={styles.marquee}>
-              <div className={styles.item}>
-                <img src="hero/image2.jpg" alt="" />
-              </div>
-              <div className={styles.item}>
-                <h1>Unique</h1>
-              </div>
-              <div className={styles.item}>
-                <img src="hero/image3.jpg" alt="" />
-              </div>
-              <div className={styles.item}>
-                <img src="hero/image1.jpg" alt="" />
-              </div>
-              <div className={styles.item}>
-                <img src="hero/image5.jpg" alt="" />
+        {marquees.map((marqueeData, index) => {
+          const moveRight = index % 2 === 0;
+          const { title, images } = marqueeData;
+
+          const beforeImages = moveRight
+            ? images.slice(0, 1)
+            : images.slice(0, 2);
+
+          const afterImages = moveRight ? images.slice(1) : images.slice(2);
+
+          return (
+            <div className={styles["marquee-container"]} key={title}>
+              <div className={styles.marquee}>
+                {/* images BEFORE text */}
+                {beforeImages.map((src, i) => (
+                  <div className={styles.item} key={`b-${i}`}>
+                    <img src={src} alt="" />
+                  </div>
+                ))}
+
+                {/* TEXT */}
+                <div className={styles.item}>
+                  <h1>{title}</h1>
+                </div>
+
+                {/* images AFTER text */}
+                {afterImages.map((src, i) => (
+                  <div className={styles.item} key={`a-${i}`}>
+                    <img src={src} alt="" />
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        ))}
-      </section>
-
-      <section className={`${styles.services} ${styles.section}`}>
-        <p>some random text</p>
-      </section>
-
-      <section className={`${styles.footer} ${styles.section}`}>
-        <img src="hero/image1.jpg" alt="hero" />
+          );
+        })}
       </section>
     </div>
   );
