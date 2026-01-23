@@ -9,6 +9,16 @@ import { animationController } from "@/lib/animation/preloadHero";
 const Preloader: React.FC = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
+    // 🔒 lock scroll
+    const originalOverflow = document.body.style.overflow;
+    const originalHeight = document.body.style.height;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+    const originalHtmlHeight = document.documentElement.style.height;
+
+    document.body.style.overflow = "hidden";
+    document.body.style.height = "100vh";
+    document.documentElement.style.overflow = "hidden";
+    document.documentElement.style.height = "100vh";
 
     gsap.registerPlugin(SplitText);
 
@@ -35,17 +45,17 @@ const Preloader: React.FC = () => {
         selector: string;
         type: "lines" | "chars";
       }[] = [
-        {
-          key: "logoChars",
-          selector: `.${styles.hero1PreloaderLogo} h1`,
-          type: "chars",
-        },
-        {
-          key: "footerLines",
-          selector: `.${styles.hero1PreloaderFooter} p`,
-          type: "lines",
-        },
-      ];
+          {
+            key: "logoChars",
+            selector: `.${styles.hero1PreloaderLogo} h1`,
+            type: "chars",
+          },
+          {
+            key: "footerLines",
+            selector: `.${styles.hero1PreloaderFooter} p`,
+            type: "lines",
+          },
+        ];
 
       const splits = createSplitTexts(splitElements);
 
@@ -56,6 +66,11 @@ const Preloader: React.FC = () => {
       function animateProgress(duration = 4) {
         const tl = gsap.timeline({
           onComplete: () => {
+            // 🔓 restore scroll
+            document.body.style.overflow = originalOverflow || "";
+            document.body.style.height = originalHeight || "";
+            document.documentElement.style.overflow = originalHtmlOverflow || "";
+            document.documentElement.style.height = originalHtmlHeight || "";
             animationController.playHero(); //  trigger hero
           },
         });
