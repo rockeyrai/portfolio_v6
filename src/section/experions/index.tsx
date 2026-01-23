@@ -14,20 +14,21 @@ const serviceTexts = [
 ];
 
 const serviceTitles = [
-  "Developer",
-  "API Service",
-  "Capital Stock",
-  "Stock Analysis",
-  "Broker",
+  "Full-Stack Engineer",
+  "Backend Development",
+  "Capital Markets ",
+  "Stock Analysis ",
+  "Broker Platform ",
 ];
 
 const serviceDescriptions = [
-  "description 1",
-  "description 2",
-  "description 3",
-  "description 4",
-  "description 5",
+  "Built and maintained production web applications using modern JavaScript frameworks, focusing on performance, accessibility, and clean UI architecture.",
+  "Designed and implemented RESTful APIs and backend services, handling authentication, data persistence, and system scalability.",
+  "Worked with capital market data to model financial instruments, pricing, and market flows for analytical applications.",
+  "Developed internal tools for stock analysis, including indicators, data visualization, and automated insights.",
+  "Integrated broker APIs to enable real-time data exchange, order workflows, and trading-related features.",
 ];
+
 
 const serviceImages = [
   "exp/image1.jpg",
@@ -205,10 +206,6 @@ const Feature10: React.FC = () => {
 
   return (
     <div className={styles.containers}>
-      {/* <section className={`${styles.hero} ${styles.section}`}>
-        <p>Scroll down</p>
-      </section> */}
-
       <section className={`${styles.sticky} ${styles.section}`} ref={stickyRef}>
         <div className={styles.col}>
           <div className={styles.services}>
@@ -238,7 +235,7 @@ const Feature10: React.FC = () => {
             </div>
           </div>
           <div className={styles["service-copy"]}>
-            <p ref={serviceCopyRef}>Some random text</p>
+            <p ref={serviceCopyRef}/>
           </div>
         </div>
 

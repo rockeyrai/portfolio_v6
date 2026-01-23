@@ -52,7 +52,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:flex-start ;
+  max-width: 30rem;
 }
 
 .indicator {
@@ -70,7 +71,7 @@
   height: 38px; 
   display: flex;
   flex-direction: column; 
-  align-items: center; 
+  align-items: start; 
   padding-top: 5px; 
   cursor: pointer;
   transition: all 0.3s ease;
