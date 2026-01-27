@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./MenuModule.module.css";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
@@ -9,7 +9,7 @@ import GlassRadioGroup, {
   GlassOption,
 } from "@/utils/components/radioButton/GlassRadioGroup";
 import { useTheme } from "@/provider/ThemeProvider";
-import { ArrowRight } from "lucide-react";
+import MainContactBtn from "../Contact";
 
 const plans: GlassOption[] = [
   { label: "light", value: "light" },
@@ -233,23 +233,13 @@ const Menu: React.FC = () => {
           </a>
         </div>
         <div className={styles.menuToggleBtn}>
-
           <div className={styles.menuHamburgerIcon}>
             <span className="bg-bg"></span>
             <span className="bg-bg"></span>
           </div>
         </div>
       </div>
-      <div className={styles.hero1MenuHeroBtn}>
-        <div className={styles.hero1Btn}>
-          <div className={styles.hero1BtnLabel}>
-            <span>Contact</span>
-          </div>
-          <div className={styles.hero1BtnIcon}>
-            <ArrowRight className={styles.hero1MenuSharp} />
-          </div>
-        </div>
-      </div>
+        <MainContactBtn />
       <div className={styles.menuOverlay}>
         <div className={styles.menuOverlayContent}>
           <div className={styles.menuMediaWrapper}>

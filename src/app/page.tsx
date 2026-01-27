@@ -9,13 +9,13 @@ import TeachStach from "@/section/techStach";
 export default function ThemeSwitcher() {
   return (
     <div className="bg-bg text-text">
+      <div className="h-screen bg-yellow-200"/>
       {/* <HeroOne/>  */}
       {/* <Experience/> */}
       {/* <TeachStach/> */}
-      <div className="h-screen" />
-      <ProjectList />
+      {/* <ProjectList /> */}
       {/* <div className="h-screen" /> */}
-      <EventList />
+      {/* <EventList /> */}
     </div>
   );
 }
