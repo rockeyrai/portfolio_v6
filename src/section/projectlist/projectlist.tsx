@@ -14,10 +14,6 @@ const ProjectList: React.FC = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // ------------------------
-    // ------------------------
-    // Services selection (CSS MODULE SAFE)
-    // ------------------------
     const services = gsap.utils.toArray<HTMLElement>(`.${styles.service}`);
 
     if (!services.length) return;
@@ -31,7 +27,7 @@ const ProjectList: React.FC = () => {
         start: `top ${70 - index*10}%`,
         end: "bottom 40%",
         scrub: true,
-        // markers:true,
+        markers:true,
         onUpdate: (self) => {
           let progress = self.progress;
           let newWidth = 30 + 70 * progress;
