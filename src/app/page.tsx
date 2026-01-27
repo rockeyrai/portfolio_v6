@@ -1,24 +1,20 @@
 "use client";
 
-import EventList from "@/section/events/feature15";
+import EventList from "@/section/events/events";
 import Experience from "@/section/experience";
 import HeroOne from "@/section/hero";
-import ProjectList from "@/section/projectlist/Feature14";
+import ProjectList from "@/section/projectlist/projectlist";
 import TeachStach from "@/section/techStach";
 
 export default function ThemeSwitcher() {
 
   return (
     <div className="bg-bg text-text">
-      {/* main hero */}
-      <HeroOne/> 
-      {/* 2nd my experice           */}
+      {/* <HeroOne/> 
       <Experience/>
-      {/* 3rd tech use in projects  */}
-      <TeachStach/>
-      {/* 4th list of project  */}
+      <TeachStach/> */}
       <ProjectList/>
-      {/* 5th cetrificate and events  */}
+      {/* <div className="h-screen"/> */}
       <EventList/>
     </div>
   );
