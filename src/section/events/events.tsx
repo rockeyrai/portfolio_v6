@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Events.module.css";
+import { SplitText } from "gsap/SplitText";
 
 const initialClipPaths: string[] = [
   "polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%)",
@@ -41,7 +42,7 @@ const EventList: React.FC = () => {
     if (hasInitialized.current) return;
     hasInitialized.current = true;
 
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, SplitText);
 
     ScrollTrigger.refresh();
 
@@ -64,7 +65,19 @@ const EventList: React.FC = () => {
       const p = event.querySelector<HTMLElement>("p");
 
       if (!img || !h1 || !p) return;
+      const h1Split = SplitText.create(h1, {
+        type: "chars",
+        charsClass: styles.eventChar,
+      });
 
+      const pSplit = SplitText.create(p, {
+        type: "lines",
+        linesClass: styles.eventLine,
+      });
+
+      // Initial state (Hero-style)
+      gsap.set(h1Split.chars, { y: "100%" });
+      gsap.set(pSplit.lines, { y: "100%" });
       // Create masks for this specific image
       createMasks(img);
 
@@ -77,19 +90,13 @@ const EventList: React.FC = () => {
         });
       });
 
-      // Set initial state for text (hidden, positioned below)
-      gsap.set([h1, p], {
-        opacity: 0,
-        y: 50,
-      });
-
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: event,
           start: "top 50%",
           end: "bottom 90%",
           toggleActions: "play none none reverse",
-          markers: true, // Set to true for debugging
+          markers: false, // Set to true for debugging
           // scrub: true,
         },
       });
@@ -125,27 +132,28 @@ const EventList: React.FC = () => {
       });
 
       // Animate h1 after image animation completes
+      // h1 chars
       tl.to(
-        h1,
+        h1Split.chars,
         {
-          opacity: 1,
           y: 0,
-          duration: 0.6,
-          ease: "power2.out",
+          // stagger: 0.01,
+          duration: 0.8,
+          ease: "power4.out",
         },
-        "+=0.2",
+        // "+=0.2",
       );
 
-      // Animate p after h1
+      // p lines
       tl.to(
-        p,
+        pSplit.lines,
         {
-          opacity: 1,
           y: 0,
-          duration: 0.6,
-          ease: "power2.out",
+          stagger: 0.1,
+          duration: 1,
+          ease: "power4.out",
         },
-        "-=0.3",
+        // "-=0.6",
       );
     }
 

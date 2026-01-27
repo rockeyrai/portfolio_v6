@@ -84,6 +84,21 @@
   overflow: hidden; /* Hide text that moves from below */
 }
 
+.eventChar,
+.eventLine {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.eventLine {
+  display: block;
+}
+
+.even h1,
+.even p {
+  overflow: hidden;
+}
+
 /* Image backgrounds - Update these paths to your actual images */
 .img1 .mask {
   background: url("/hero/image1.jpg") no-repeat 50% 50%;

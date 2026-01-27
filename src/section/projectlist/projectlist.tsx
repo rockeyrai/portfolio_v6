@@ -24,10 +24,10 @@ const ProjectList: React.FC = () => {
 
       const st1 = ScrollTrigger.create({
         trigger: service,
-        start: `top ${70 - index*10}%`,
+        start: `top ${70 - index * 15}%`,
         end: "bottom 40%",
         scrub: true,
-        markers:true,
+        // markers: true,
         onUpdate: (self) => {
           let progress = self.progress;
           let newWidth = 30 + 70 * progress;
@@ -42,7 +42,7 @@ const ProjectList: React.FC = () => {
 
       const st2 = ScrollTrigger.create({
         trigger: service,
-        start: "top 70%",
+        start: `top ${70 - index * 15}%`,
         end: "bottom 40%",
         scrub: true,
         onUpdate: (self) => {
@@ -72,7 +72,6 @@ const ProjectList: React.FC = () => {
     <div className={styles.container}>
       <section className={styles.services}>
         <div className={styles.serviceHeader}>
-          <div className={styles.col} />
           <div className={styles.col}>
             <h1>all services</h1>
           </div>
