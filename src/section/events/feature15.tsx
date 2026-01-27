@@ -28,7 +28,7 @@ const finalClipPaths: string[] = [
   "polygon(66% 66%, 100% 66%, 100% 100%, 66% 100%)",
 ];
 
-const Feature15: React.FC = () => {
+const EventList: React.FC = () => {
   const hasInitialized = useRef<boolean>(false);
 
   useEffect(() => {
@@ -201,4 +201,4 @@ const Feature15: React.FC = () => {
   );
 };
 
-export default Feature15;
+export default EventList;

@@ -8,7 +8,7 @@ import styles from "./Feature.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Feature14: React.FC = () => {
+const ProjectList: React.FC = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -136,4 +136,4 @@ const Feature14: React.FC = () => {
   );
 };
 
-export default Feature14;
+export default ProjectList;
