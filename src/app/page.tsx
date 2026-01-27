@@ -7,15 +7,16 @@ import ProjectList from "@/section/projectlist/projectlist";
 import TeachStach from "@/section/techStach";
 
 export default function ThemeSwitcher() {
-
   return (
     <div className="bg-bg text-text">
-      {/* <HeroOne/> 
-      <Experience/>
-      <TeachStach/> */}
-      <ProjectList/>
-      {/* <div className="h-screen"/> */}
-      <EventList/>
+      {/* <HeroOne/>  */}
+      {/* <Experience/> */}
+      {/* <TeachStach/> */}
+      <div className="h-screen" />
+      <ProjectList />
+      <div className="h-screen" />
+
+      {/* <EventList/> */}
     </div>
   );
 }

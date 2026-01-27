@@ -68,6 +68,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @layer utilities {
   .bg-bg {
     background-color: var(--bg);

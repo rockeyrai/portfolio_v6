@@ -22,15 +22,16 @@ const ProjectList: React.FC = () => {
 
     if (!services.length) return;
 
-    services.forEach((service) => {
+    services.forEach((service, index) => {
       const imgContainer = service.querySelector(`.${styles.img}`);
       if (!imgContainer) return;
 
       const st1 = ScrollTrigger.create({
         trigger: service,
-        start: "bottom bottom",
-        end: "top top",
+        start: `top ${70 - index*10}%`,
+        end: "bottom 40%",
         scrub: true,
+        // markers:true,
         onUpdate: (self) => {
           let progress = self.progress;
           let newWidth = 30 + 70 * progress;
@@ -45,8 +46,8 @@ const ProjectList: React.FC = () => {
 
       const st2 = ScrollTrigger.create({
         trigger: service,
-        start: "top bottom",
-        end: "top top",
+        start: "top 70%",
+        end: "bottom 40%",
         scrub: true,
         onUpdate: (self) => {
           const progress = self.progress;
