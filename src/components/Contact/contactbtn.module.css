@@ -6,12 +6,10 @@
   transform: translateX(-50%);
   transform-origin: center bottom;
   will-change: transform;
-  border-radius:2rem;
   background-color: rgba(41, 39, 37, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  min-width: 100px;
-  padding: 1.5rem;
+  padding: 1.4em;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden; /* REQUIRED for height animation */

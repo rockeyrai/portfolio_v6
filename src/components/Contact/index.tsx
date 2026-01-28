@@ -26,23 +26,38 @@ const MainContactBtn = () => {
     if (newIsOpen) {
       const menu = menuRef.current;
 
-      const maxHeight =window.innerHeight * 0.94
+      const maxHeight = window.innerHeight * 0.93;
+      const maxWidth = window.innerWidth * 0.98;
 
-      const maxWidth = window.innerWidth * 0.98
-    
-
-      gsap.to(menu, {
-        height: maxHeight,
-        width: maxWidth,
-        duration: 1.3,
-        ease: "power1.inOut",
-        pointerEvents: "auto",
+      gsap.set(menuRef.current, {
+        width: window.innerWidth * 0.05,
+        height: window.innerHeight * 0.05,
+        borderRadius: "4em",
       });
+
+      const tl = gsap.timeline({
+        defaults: {
+          duration: 1.5,
+          ease: "power1.inOut",
+        },
+      });
+
+      tl.to(
+        menu,
+        {
+          height: maxHeight,
+          width: maxWidth,
+          borderRadius: "2em", 
+          pointerEvents: "auto",
+        },
+        0,
+      );
     } else {
       gsap.to(menuRef.current, {
-        height: 0,
-        width: 120, // collapse back
-        duration: 1.3,
+        width: window.innerWidth * 0.05,
+        height: window.innerHeight * 0.05,
+        borderRadius: "4em",
+        duration: 1.5,
         ease: "power1.inOut",
         pointerEvents: "none",
       });
@@ -51,9 +66,7 @@ const MainContactBtn = () => {
 
   return (
     <>
-      <div ref={menuRef} className={styles.contactmenu}>
-
-      </div>
+      <div ref={menuRef} className={styles.contactmenu}></div>
       <div className={styles.hero1MenuHeroBtn}>
         <button className={styles.hero1Btn} onClick={handleClick}>
           <span className={styles.hero1BtnLabel}>Contact</span>
