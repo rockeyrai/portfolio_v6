@@ -6,15 +6,16 @@
   transform: translateX(-50%);
   transform-origin: center bottom;
   will-change: transform;
-  border-radius: 1em;
+  border-radius:2rem;
   background-color: rgba(41, 39, 37, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   min-width: 100px;
   padding: 1.5rem;
-  pointer-events: none;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden; /* REQUIRED for height animation */
+  cursor: pointer;
 }
 
 .hero1Btn {
@@ -29,8 +30,6 @@
   color: var(--base-100);
   will-change: transform;
   cursor: pointer;
-  z-index: var(--zIndex-level-3);
-  opacity: 0.5;
 }
 
 .hero1MenuHeroBtn {
@@ -40,7 +39,8 @@
   transform: translateX(-50%);
   cursor: pointer;
   pointer-events: all;
-  background: red;
+    z-index: var(--zIndex-level-3);
+
 }
 
 .hero1BtnIcon {

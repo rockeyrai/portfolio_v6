@@ -14,7 +14,6 @@ export default function ThemeSwitcher() {
       {/* <Experience/> */}
       {/* <TeachStach/> */}
       {/* <ProjectList /> */}
-      {/* <div className="h-screen" /> */}
       {/* <EventList /> */}
     </div>
   );

@@ -20,37 +20,31 @@ const MainContactBtn = () => {
     gsap.to(arrowRef.current, {
       rotate: newIsOpen ? 0 : -45,
       duration: 0.45,
-      ease: "power3.out",
-      overwrite: "auto",
+      ease: "power1.out",
     });
 
     if (newIsOpen) {
-      // Open menu animation
-      gsap.fromTo(
-        menuRef.current,
-        {
-          scale: 0,
-          opacity: 0,
-          xPercent: -50, // This replaces translateX(-50%)
-        },
-        {
-          scale: 5,
-          opacity: 1,
-          xPercent: -50, // Keep it centered during animation
-          duration: 0.5,
-          ease: "back.out(1.4)",
-          overwrite: "auto",
-        },
-      );
+      const menu = menuRef.current;
+
+      const maxHeight =window.innerHeight * 0.94
+
+      const maxWidth = window.innerWidth * 0.98
+    
+
+      gsap.to(menu, {
+        height: maxHeight,
+        width: maxWidth,
+        duration: 1.3,
+        ease: "power1.inOut",
+        pointerEvents: "auto",
+      });
     } else {
-      // Close menu animation
       gsap.to(menuRef.current, {
-        scale: 0,
-        opacity: 0,
-        duration: 0.4,
-        xPercent: -50, // Maintain the center during the exit
-        ease: "power3.in",
-        overwrite: "auto",
+        height: 0,
+        width: 120, // collapse back
+        duration: 1.3,
+        ease: "power1.inOut",
+        pointerEvents: "none",
       });
     }
   };
@@ -58,8 +52,7 @@ const MainContactBtn = () => {
   return (
     <>
       <div ref={menuRef} className={styles.contactmenu}>
-        <h1>test</h1>
-        <p>test2</p>
+
       </div>
       <div className={styles.hero1MenuHeroBtn}>
         <button className={styles.hero1Btn} onClick={handleClick}>
