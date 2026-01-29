@@ -37,7 +37,7 @@ export default async function RootLayout({
       >
         <Providers>
           <Menu />
-          {/* <Preloader/> */}
+          <Preloader/>
           {children}
         </Providers>
       </body>

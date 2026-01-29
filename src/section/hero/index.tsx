@@ -72,7 +72,7 @@ const HeroOne: React.FC = () => {
           scale: 1.3,
         });
 
-        const tl = gsap.timeline({ delay: 2 });
+        const tl = gsap.timeline({ delay: 1.5 });
 
         tl.to(splits.headerChars.chars, {
           y: 0,
@@ -84,8 +84,8 @@ const HeroOne: React.FC = () => {
             `.${styles.hero1Img}`,
             {
               scale: 1,
-              duration: 1.5,
-              ease: "power3.out",
+              duration: 1,
+              ease: "power1.in",
             },
             "<",
           )
@@ -94,10 +94,10 @@ const HeroOne: React.FC = () => {
             {
               y: 0,
               stagger: 0.1,
-              duration: 1,
+              duration: 0.5,
               ease: "power4.out",
             },
-            "-=0.8",
+            "-=0.5",
           );
         animationController.setHeroTimeline(tl);
       });

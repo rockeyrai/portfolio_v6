@@ -4,6 +4,8 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  z-index: var(--zIndex-level-3);
+  pointer-events: none;
 }
 
 .menuBar {
@@ -21,6 +23,7 @@
   height: 3rem;
   z-index: var(--zIndex-level-6);
 }
+
 .menuToggleBtn {
   display: flex;
   align-items: center;
@@ -28,14 +31,17 @@
   cursor: pointer;
   z-index: var(--zIndex-level-4);
 }
+
 .menuToggleLabel {
   overflow: hidden;
 }
+
 .menuToggleLabel p {
   position: relative;
   transform: translateY(0%);
   will-change: transform;
 }
+
 .menuHamburgerIcon {
   position: relative;
   width: 3rem;
@@ -47,6 +53,7 @@
   border: 1px solid var(--text);
   border-radius: 100%;
 }
+
 .menuHamburgerIcon span {
   position: absolute;
   width: 15px;
@@ -56,15 +63,19 @@
   transform-origin: center;
   will-change: transform;
 }
+
 .menuHamburgerIcon span:nth-child(1) {
   transform: translateY(-3px);
 }
+
 .menuHamburgerIcon span:nth-child(2) {
   transform: translateY(3px);
 }
+
 .menuHamburgerIcon.active span:nth-child(1) {
   transform: translateY(0) rotate(45deg) scaleX(1.05);
 }
+
 .menuHamburgerIcon.active span:nth-child(2) {
   transform: translateY(0) rotate(-45deg) scaleX(1.05);
 }
@@ -79,36 +90,43 @@
   color: var(--fg);
   overflow: hidden;
 }
+
 .menuOverlay {
   background-color: var(--base-200);
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   will-change: clip-path;
   z-index: var(--zIndex-level-5);
 }
+
 .menuOverlayContent {
   display: flex;
   will-change: transform;
   pointer-events: all;
 }
+
 .menuMediaWrapper {
   flex: 2;
   opacity: 0;
   will-change: opacity;
 }
+
 .menuContentWrapper {
   flex: 3;
   position: relative;
   display: flex;
 }
+
 .menuContentMain {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .menuFooter {
   margin: 0 auto;
 }
+
 .menuContentMain,
 .menuFooter {
   width: 75%;
@@ -117,17 +135,21 @@
   align-items: flex-end;
   gap: 2rem;
 }
+
 .menuCol {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
+
 .menuCol:nth-child(1) {
   flex: 3;
 }
+
 .menuCol:nth-child(2) {
   flex: 2;
 }
+
 .menuLink a {
   font-size: 3.5rem;
   font-weight: 500;
