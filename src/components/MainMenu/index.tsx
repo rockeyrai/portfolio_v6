@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./MenuModule.module.css";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
@@ -20,6 +20,10 @@ const plans: GlassOption[] = [
 
 const Menu: React.FC = () => {
   const { theme, setTheme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isAnimating = useRef(false);
+  const isMenuOpenRef = useRef(false);
+
 
   useEffect(() => {
     gsap.registerPlugin(CustomEase, SplitText);
@@ -79,168 +83,123 @@ const Menu: React.FC = () => {
       `.${styles.menuHamburgerIcon}`,
     );
 
-    let isMenuOpen = false;
-    let isAnimating = false;
+  const handleToggle = () => {
+  if (isAnimating.current) return;
 
-    menuToggleBtn?.addEventListener("click", () => {
-      if (isAnimating) return;
+  if (!isMenuOpenRef.current) {
+    // OPEN
+    isAnimating.current = true;
+    lenis.stop();
 
-      if (!isMenuOpen) {
-        isAnimating = true;
-        lenis.stop();
+    const tl = gsap.timeline();
 
-        const tl = gsap.timeline();
+    tl.to(menuToggleLabel, {
+      y: "-110%",
+      duration: 1,
+      ease: "hop",
+    })
+      .to(container, { y: "100vh", duration: 1, ease: "hop" }, "<")
+      .to(menuOverlay, {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%,0% 100%)",
+        duration: 1,
+        ease: "hop",
+      }, "<")
+      .to(menuOverlayContainer, { yPercent: 0, duration: 1, ease: "hop" }, "<")
+      .to(menuMediaWrapper, {
+        opacity: 1,
+        duration: 0.75,
+        ease: "power2.out",
+        delay: 0.5,
+      }, "<");
 
-        tl.to(menuToggleLabel, {
-          y: "-110%",
-          duration: 1,
-          ease: "hop",
-        })
-          .to(
-            container,
-            {
-              y: "100vh",
-              duration: 1,
-              ease: "hop",
-            },
-            "<",
-          )
-          .to(
-            menuOverlay,
-            {
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%,0% 100%)",
-              duration: 1,
-              ease: "hop",
-            },
-            "<",
-          )
-          .to(
-            menuOverlayContainer,
-            {
-              yPercent: 0,
-              duration: 1,
-              ease: "hop",
-            },
-            "<",
-          )
-          .to(
-            menuMediaWrapper,
-            {
-              opacity: 1,
-              duration: 0.75,
-              ease: "power2.out",
-              delay: 0.5,
-            },
-            "<",
-          );
-
-        splitTextByContainer.forEach((containerSplits) => {
-          const copyLines = containerSplits.flatMap((split) => split.lines);
-
-          tl.to(
-            copyLines,
-            {
-              y: "0%",
-              duration: 2,
-              ease: "hop",
-              stagger: -0.075,
-            },
-            -0.15,
-          );
-        });
-
-        hamburgerIcon?.classList.add(styles.active);
-        tl.call(() => {
-          isAnimating = false;
-        });
-
-        isMenuOpen = true;
-      } else {
-        isAnimating = true;
-
-        hamburgerIcon?.classList.remove(styles.active);
-        const tl = gsap.timeline();
-
-        tl.to(container, {
-          y: "0vh",
-          duration: 1,
-          ease: "hop",
-        })
-          .to(
-            menuOverlay,
-            {
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-              duration: 1,
-              ease: "hop",
-            },
-            "<",
-          )
-          .to(
-            menuOverlayContainer,
-            {
-              yPercent: -50,
-              duration: 1,
-              ease: "hop",
-            },
-            "<",
-          )
-          .to(
-            menuToggleLabel,
-            {
-              y: "0%",
-              duration: 1,
-              ease: "hop",
-            },
-            "<",
-          )
-          .to(
-            copyContainers,
-            {
-              opacity: 0.25,
-              duration: 1,
-              ease: "hop",
-            },
-            "<",
-          );
-
-        tl.call(() => {
-          splitTextByContainer.forEach((containerSplits) => {
-            const copyLines = containerSplits.flatMap((split) => split.lines);
-            gsap.set(copyLines, { y: "-110%" });
-          });
-
-          gsap.set(copyContainers, { opacity: 1 });
-          gsap.set(menuMediaWrapper, { opacity: 0 });
-
-          isAnimating = false;
-          lenis.start();
-        });
-
-        isMenuOpen = false;
-      }
+    splitTextByContainer.forEach((containerSplits) => {
+      const copyLines = containerSplits.flatMap((split) => split.lines);
+      tl.to(copyLines, {
+        y: "0%",
+        duration: 2,
+        ease: "hop",
+        stagger: -0.075,
+      }, -0.15);
     });
 
+    hamburgerIcon?.classList.add(styles.active);
+
+    tl.call(() => {
+      isAnimating.current = false;
+    });
+
+    isMenuOpenRef.current = true;
+    setIsMenuOpen(true);
+  } else {
+    // CLOSE
+    isAnimating.current = true;
+    hamburgerIcon?.classList.remove(styles.active);
+
+    const tl = gsap.timeline();
+
+    tl.to(container, { y: "0vh", duration: 1, ease: "hop" })
+      .to(menuOverlay, {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+        duration: 1,
+        ease: "hop",
+      }, "<")
+      .to(menuOverlayContainer, { yPercent: -50, duration: 1, ease: "hop" }, "<")
+      .to(menuToggleLabel, { y: "0%", duration: 1, ease: "hop" }, "<")
+      .to(copyContainers, { opacity: 0.25, duration: 1 }, "<");
+
+    tl.call(() => {
+      splitTextByContainer.forEach((containerSplits) => {
+        const copyLines = containerSplits.flatMap((split) => split.lines);
+        gsap.set(copyLines, { y: "-110%" });
+      });
+
+      gsap.set(copyContainers, { opacity: 1 });
+      gsap.set(menuMediaWrapper, { opacity: 0 });
+
+      isAnimating.current = false;
+      lenis.start();
+    });
+
+    isMenuOpenRef.current = false;
+    setIsMenuOpen(false);
+  }
+};
+
+    menuToggleBtn?.addEventListener("click", handleToggle);
+
     return () => {
-      menuToggleBtn?.removeEventListener("click", () => {});
+      menuToggleBtn?.removeEventListener("click", handleToggle);
     };
   }, []);
 
   return (
-    <nav className={styles.menuNav}>
+    <nav
+      className={`${styles.menuNav} ${
+        isMenuOpen ? styles.menuNavOpen : styles.menuNavClose
+      }`}
+    >
       <div className={styles.menuBar}>
         <div className={styles.menuLogo}>
           <a href="#">
             <img src="/hero/image1.jpg" alt="just" />
           </a>
         </div>
-        <div className={styles.menuToggleBtn}>
+        <div
+          className={`${styles.menuToggleBtn} ${
+            isMenuOpen ? styles.menuToggleBtnOpen : styles.menuToggleBtnClose
+          }`}
+        >
           <div className={styles.menuHamburgerIcon}>
             <span className="bg-bg"></span>
             <span className="bg-bg"></span>
           </div>
         </div>
       </div>
-      <div className={styles.menuOverlay}>
+      <div
+        className={`${styles.menuOverlay} ${
+          isMenuOpen ? styles.menuOverlayOpen : styles.menuOverlayClose
+        }`}
+      >
         <div className={styles.menuOverlayContent}>
           <div className={styles.menuMediaWrapper}>
             <img src="/hero/image2.jpg" alt="" />
@@ -294,7 +253,7 @@ const Menu: React.FC = () => {
         </div>
       </div>
 
-      <MainContactBtn />
+      <MainContactBtn isUnder={isMenuOpen} />
     </nav>
   );
 };

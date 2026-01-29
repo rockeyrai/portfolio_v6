@@ -1,5 +1,4 @@
 .contactmenu {
-  z-index: var(--zIndex-level-4);
   position: absolute;
   bottom: 2rem;
   left: 50%;
@@ -14,6 +13,14 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden; /* REQUIRED for height animation */
   cursor: pointer;
+}
+
+.contactmenuOpen{
+  z-index: var(--zIndex-level-4);
+}
+
+.contactmenuClose{
+  z-index: var(--zIndex-level-6);
 }
 
 .hero1Btn {
@@ -37,8 +44,13 @@
   transform: translateX(-50%);
   cursor: pointer;
   pointer-events: all;
-    z-index: var(--zIndex-level-3);
 
+}
+.hero1MenuHeroBtnOpen {
+  z-index: var(--zIndex-level-3);
+}
+.hero1MenuHeroBtnClose {
+  z-index: var(--zIndex-level-6);
 }
 
 .hero1BtnIcon {

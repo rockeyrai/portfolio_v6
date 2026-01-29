@@ -5,7 +5,7 @@ import gsap from "gsap";
 import styles from "./contactbtn.module.css";
 import { CircleArrowRight } from "lucide-react";
 
-const MainContactBtn = () => {
+const MainContactBtn = (isUnder: boolean) => {
   const arrowRef = useRef<SVGSVGElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +47,7 @@ const MainContactBtn = () => {
         {
           height: maxHeight,
           width: maxWidth,
-          borderRadius: "2em", 
+          borderRadius: "2em",
           pointerEvents: "auto",
         },
         0,
@@ -66,8 +66,14 @@ const MainContactBtn = () => {
 
   return (
     <>
-      <div ref={menuRef} className={styles.contactmenu}></div>
-      <div className={styles.hero1MenuHeroBtn}>
+      <div ref={menuRef} className={`${styles.contactmenu} ${
+          isOpen ? styles.contactmenuOpen : styles.contactmenuClose
+        }`}></div>
+      <div
+        className={`${styles.hero1MenuHeroBtn} ${
+          isOpen ? styles.hero1MenuHeroBtnOpen : styles.hero1MenuHeroBtnClose
+        }`}
+      >
         <button className={styles.hero1Btn} onClick={handleClick}>
           <span className={styles.hero1BtnLabel}>Contact</span>
           <CircleArrowRight

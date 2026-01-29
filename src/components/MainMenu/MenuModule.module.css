@@ -4,8 +4,15 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  z-index: var(--zIndex-level-3);
   pointer-events: none;
+}
+
+.menuNavOpen {
+  z-index: var(--zIndex-level-2);
+}
+
+.menuNavClose {
+  z-index: var(--zIndex-level-3);
 }
 
 .menuBar {
@@ -16,6 +23,8 @@
   align-items: center;
   pointer-events: all;
   padding: 2em;
+  z-index: var(--zIndex-level-4);
+
 }
 
 .menuLogo {
@@ -29,7 +38,21 @@
   align-items: center;
   gap: 1rem;
   cursor: pointer;
+}
+
+.menuToggleBtnOpen {
   z-index: var(--zIndex-level-4);
+}
+
+.menuToggleBtnClose {
+  z-index: var(--zIndex-level-5);
+}
+.menuOverlayOpen {
+  z-index: var(--zIndex-level-5);
+}
+
+.menuOverlayClose {
+  z-index: var(--zIndex-level-6);
 }
 
 .menuToggleLabel {
@@ -95,7 +118,6 @@
   background-color: var(--base-200);
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   will-change: clip-path;
-  z-index: var(--zIndex-level-5);
 }
 
 .menuOverlayContent {
