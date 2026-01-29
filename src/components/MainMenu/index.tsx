@@ -10,6 +10,7 @@ import GlassRadioGroup, {
 } from "@/utils/components/radioButton/GlassRadioGroup";
 import { useTheme } from "@/provider/ThemeProvider";
 import MainContactBtn from "../Contact";
+import { env } from "process";
 
 const plans: GlassOption[] = [
   { label: "light", value: "light" },
@@ -239,7 +240,6 @@ const Menu: React.FC = () => {
           </div>
         </div>
       </div>
-        <MainContactBtn />
       <div className={styles.menuOverlay}>
         <div className={styles.menuOverlayContent}>
           <div className={styles.menuMediaWrapper}>
@@ -293,6 +293,8 @@ const Menu: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <MainContactBtn />
     </nav>
   );
 };
