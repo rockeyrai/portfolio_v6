@@ -165,7 +165,6 @@ const Preloader: React.FC = () => {
     });
   }, []);
 
-  console.log("testing z-index env",process.env.NEXT_PUBLIC_Z_INDEX_LEVEL_1)
   return (
     <>
       <div className={styles.hero1PreloaderProgress}>
