@@ -19,7 +19,7 @@
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content:flex-end;
   align-items: center;
   pointer-events: all;
   padding: 2em;
@@ -30,6 +30,8 @@
 .menuLogo {
   width: 3rem;
   height: 3rem;
+  border-radius: 25%;
+  overflow: hidden;
   z-index: var(--zIndex-level-6);
 }
 
@@ -130,6 +132,8 @@
   flex: 2;
   opacity: 0;
   will-change: opacity;
+  max-width: 50%;
+  max-height: 100vh;
 }
 
 .menuContentWrapper {

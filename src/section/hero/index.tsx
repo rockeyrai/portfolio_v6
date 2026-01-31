@@ -1,13 +1,36 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
 import styles from "./Hero.module.css";
 import { animationController } from "@/lib/animation/preloadHero";
+import { api } from "@/lib/api";
+import Image from "next/image";
 
 const HeroOne: React.FC = () => {
   const root = useRef<HTMLDivElement>(null);
+  const [heroImg, setHeroImg] = useState("");
+
+  useEffect(() => {
+    async function loadImages() {
+      try {
+        const images = await api.getImages("layout");
+
+        const hero = images.find((img) => img.id.startsWith("layout6"));
+
+        if (hero) {
+          setHeroImg(hero.url);
+        }
+
+        console.log("images data", images);
+      } catch (err) {
+        console.error(err.message);
+      }
+    }
+
+    loadImages();
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -111,7 +134,13 @@ const HeroOne: React.FC = () => {
         <section className={styles.hero1}>
           <div className={styles.hero1Inner}>
             <div className={styles.hero1Img}>
-              <img src="/hero/image1.jpg" alt="hero1" />
+              <Image
+                src={heroImg}
+                alt=""
+                width={800}
+                height={600}
+                loading="lazy"
+              />
             </div>
             <div className={styles.hero1Content}>
               <div className={styles.hero1Header}>

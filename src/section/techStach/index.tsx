@@ -5,34 +5,35 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import Lenis from "@studio-freight/lenis";
 import styles from "./feature.module.css";
+import Image from "next/image";
 
 const TeachStach: React.FC = () => {
   const marquees = [
     {
       title: "MY",
       images: [
-        "hero/image2.jpg",
-        "hero/image3.jpg",
-        "hero/image1.jpg",
-        "hero/image5.jpg",
+        "/hero/image2.jpg",
+        "/hero/image3.jpg",
+        "/hero/image1.jpg",
+        "/hero/image5.jpg",
       ],
     },
     {
       title: "TECH",
       images: [
-        "hero/image2.jpg",
-        "hero/image3.jpg",
-        "hero/image1.jpg",
-        "hero/image5.jpg",
+        "/hero/image2.jpg",
+        "/hero/image3.jpg",
+        "/hero/image1.jpg",
+        "/hero/image5.jpg",
       ],
     },
     {
       title: "STACK",
       images: [
-        "hero/image2.jpg",
-        "hero/image3.jpg",
-        "hero/image1.jpg",
-        "hero/image5.jpg",
+        "/hero/image2.jpg",
+        "/hero/image3.jpg",
+        "/hero/image1.jpg",
+        "/hero/image5.jpg",
       ],
     },
   ];
@@ -152,7 +153,7 @@ const TeachStach: React.FC = () => {
                 {/* images BEFORE text */}
                 {beforeImages.map((src, i) => (
                   <div className={styles.item} key={`b-${i}`}>
-                    <img src={src} alt="" />
+                    <Image src={src} alt="" fill style={{ objectFit: "cover" }} />
                   </div>
                 ))}
 
@@ -164,7 +165,7 @@ const TeachStach: React.FC = () => {
                 {/* images AFTER text */}
                 {afterImages.map((src, i) => (
                   <div className={styles.item} key={`a-${i}`}>
-                    <img src={src} alt="" />
+                    <Image src={src} alt="" fill style={{ objectFit: "cover" }} />
                   </div>
                 ))}
               </div>

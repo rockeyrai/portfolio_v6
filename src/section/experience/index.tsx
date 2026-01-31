@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
 import styles from "./Experience.module.css";
 import SplitType from "split-type";
+import Image from "next/image";
 
 const serviceTexts = [
   ["We transform your ideas into creative solutions."],
@@ -31,11 +32,11 @@ const serviceDescriptions = [
 
 
 const serviceImages = [
-  "exp/image1.jpg",
-  "exp/image2.jpg",
-  "exp/image3.jpg",
-  "exp/image4.webp",
-  "exp/image5.jpg",
+  "/exp/image1.jpg",
+  "/exp/image2.jpg",
+  "/exp/image3.jpg",
+  "/exp/image4.webp",
+  "/exp/image5.jpg",
 ];
 
 const Experience: React.FC = () => {
@@ -229,7 +230,7 @@ const Experience: React.FC = () => {
             <div className={styles["service-img"]} ref={serviceImgRef}>
               {serviceImages.map((src, i) => (
                 <div className={styles.img} key={i}>
-                  <img src={src} alt="" />
+                  <Image src={src} alt="" fill style={{ objectFit: "cover" }} />
                 </div>
               ))}
             </div>

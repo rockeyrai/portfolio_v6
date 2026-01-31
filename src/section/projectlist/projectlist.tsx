@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./ProjectList.module.css";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -85,7 +86,8 @@ const ProjectList: React.FC = () => {
 
             <div className={styles.serviceImg}>
               <div className={styles.img}>
-                <img src="/hero/image1.jpg" alt="service" />
+                <Image src="/hero/image1.jpg" alt="service" fill style={{ objectFit: "cover" }} />
+
               </div>
             </div>
           </div>
