@@ -1,46 +1,20 @@
-.containers{
+.containers {
   overflow: hidden;
-  width:100%;
-}
-
-
-.section {
   width: 100%;
-  height: 100svh;
 }
 
-.section.about,
-.section.services {
-  padding: 4rem;
-  background:#87795f;
-}
-
-.footer{
-    height: 100svh;
-    width: 100%;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-}
-.section.footer h1{
-  font-size: 10vw;
-  text-transform: uppercase;
-}
-
-.section.marquees{
-  height: 100vh;
+.section.marquees {
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #fff;
 }
 
 .marquee-container {
   position: relative;
-  width: 125%;
-  height: 200%;
+  width: 100%;
+  height: 100%;
   display: flex;
-  margin-bottom: 1rem;
   overflow: hidden;
 }
 
@@ -52,38 +26,52 @@
   left: 0;
   transform: translateY(-50%);
   display: flex;
-  gap:1rem;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 #marquee-1 .marquee,
-#marquee-3 .marquee{
+#marquee-3 .marquee {
   left: -15%;
 }
 
 .item {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  max-width: 100%;
+}
+
+.itemImg {
+  width: 6rem;
+  height: 6rem;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--base-100);
+  border-radius: 50%;
 }
 
 .item-with-text {
   flex: 1.5;
 }
 
-.item h1{
+.item h1 {
   text-transform: uppercase;
-  font-size: 60px;
+  font-size: 4rem;
 }
 
-@media (max-width:900px){
-  .section.marquees{
+@media (max-width: 900px) {
+  .section.marquees {
     height: 100vh;
     /* background-color: black; */
   }
 
-  .marquee-container{
+  .marquee-container {
     width: 250%;
     height: 150px;
   }
@@ -93,11 +81,11 @@
     left: -35%;
   }
 
-  .item.with-text{
+  .item.with-text {
     flex: 1;
   }
 
-  .item h1{
+  .item h1 {
     font-size: 30px;
   }
 }

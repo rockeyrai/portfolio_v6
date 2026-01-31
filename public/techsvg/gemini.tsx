@@ -1,10 +1,10 @@
 import * as React from "react";
 const GeminiSvg = (props: any) => (
-  <svg
+<svg
     viewBox="0 0 28.01 28"
     xmlns="http://www.w3.org/2000/svg"
-    width={2500}
-    height={2499}
+    width={200}
+    height={299}
     {...props}
   >
     <radialGradient

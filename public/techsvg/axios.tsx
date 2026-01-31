@@ -1,6 +1,6 @@
 import * as React from "react";
 const AxiosSvg = (props: any) => (
-  <svg width={64} height={64} {...props}>
+  <svg width={124} height={124} {...props}>
     <path
       d="M55.4 22.08h-7.225l-4.25 7.055-4.122-7.055h-7.3l7.947 11.645-5.142 7.522-8.457-19.125h-6.375l10.54 23.714h7.947l4.972-7.522 4.93 7.522h6.502l-7.862-12.112z"
       fill="#fff"

@@ -8,7 +8,6 @@ import styles from "./feature.module.css";
 
 import DockerSvg from "../../../public/techsvg/docker";
 import AntigravitySvg from "../../../public/techsvg/antigravity";
-import AxiosSvg from "../../../public/techsvg/axios";
 import ChatgptSvg from "../../../public/techsvg/chatgpt";
 import ClaudeSvg from "../../../public/techsvg/claude";
 import CloudinarySvg from "../../../public/techsvg/cloudinary";
@@ -19,7 +18,6 @@ import D3jsSvg from "../../../public/techsvg/d3js";
 import ExpoioSvg from "../../../public/techsvg/expoio";
 import ExpressjsSvg from "../../../public/techsvg/expressjs";
 import FirebaseSvg from "../../../public/techsvg/firebase";
-import GeminiSvg from "../../../public/techsvg/gemini";
 import GitSvg from "../../../public/techsvg/git";
 import GithubSvg from "../../../public/techsvg/github";
 import Htm5Svg from "../../../public/techsvg/htm5";
@@ -30,7 +28,6 @@ import MysqlSvg from "../../../public/techsvg/mysql";
 import NodejsSvg from "../../../public/techsvg/nodejs";
 import ReactSvg from "../../../public/techsvg/react";
 import ReduxSvg from "../../../public/techsvg/redux";
-import SocketioSvg from "../../../public/techsvg/socketio";
 import StrapiSvg from "../../../public/techsvg/strapi";
 import TailwindcssSvg from "../../../public/techsvg/tailwindcss";
 import TypescriptSvg from "../../../public/techsvg/typescript";
@@ -43,7 +40,6 @@ const TeachStach: React.FC = () => {
       title: "MY",
       icons: [
         AntigravitySvg,
-        AxiosSvg,
         ChatgptSvg,
         ClaudeSvg,
         CloudinarySvg,
@@ -60,7 +56,6 @@ const TeachStach: React.FC = () => {
         ExpoioSvg,
         ExpressjsSvg,
         FirebaseSvg,
-        GeminiSvg,
         GitSvg,
         GithubSvg,
         Htm5Svg,
@@ -76,7 +71,6 @@ const TeachStach: React.FC = () => {
         NodejsSvg,
         ReactSvg,
         ReduxSvg,
-        SocketioSvg,
         StrapiSvg,
         TailwindcssSvg,
         TypescriptSvg,
@@ -191,14 +185,14 @@ const TeachStach: React.FC = () => {
 
           const beforeIcons = moveRight ? icons.slice(0, 3) : icons.slice(0, 4);
 
-          const afterIcons = moveRight ? icons.slice(3) : icons.slice(4);
+          const afterIcons = moveRight ? icons.slice(5) : icons.slice(6);
 
           return (
             <div className={styles["marquee-container"]} key={title}>
               <div className={styles.marquee}>
                 {/* icons BEFORE text */}
                 {beforeIcons.map((Icon, i) => (
-                  <div className={styles.item} key={`b-${i}`}>
+                  <div className={styles.itemImg} key={`b-${i}`}>
                     <Icon style={{ width: "100%", height: "100%" }} />
                   </div>
                 ))}
@@ -210,7 +204,7 @@ const TeachStach: React.FC = () => {
 
                 {/* icons AFTER text */}
                 {afterIcons.map((Icon, i) => (
-                  <div className={styles.item} key={`a-${i}`}>
+                  <div className={styles.itemImg} key={`a-${i}`}>
                     <Icon style={{ width: "100%", height: "100%" }} />
                   </div>
                 ))}
