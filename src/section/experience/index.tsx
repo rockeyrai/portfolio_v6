@@ -21,9 +21,14 @@ const experienceTitle = [
 ];
 
 const experienceDescription = [
-  "Built and maintained production web applications using modern JavaScript frameworks, focusing on performance, accessibility, and clean UI architecture.",
-  "Designed and implemented RESTful APIs and backend services, handling authentication, data persistence, and system scalability.",
-  "Designed and implemented RESTful APIs and backend services, handling authentication, data persistence, and system scalability.",
+  // MERN Stack
+  "Developed full-stack web applications using MongoDB, Express, React, and Node.js, focusing on component-driven UI, RESTful APIs, and efficient data flow across the stack.",
+
+  // Jr Associate Developer
+  "Assisted senior developers in building and maintaining web features, fixing bugs, writing reusable components, and collaborating in an agile team environment to deliver reliable solutions.",
+
+  // Jr Full-Stack Developer
+  "Designed and implemented end-to-end features across frontend and backend, integrating APIs, managing databases, and ensuring performance, scalability, and clean application architecture.",
 ];
 
 
@@ -71,8 +76,12 @@ const Experience: React.FC = () => {
     services.forEach((s, idx) => {
       const desc = s.querySelector("span") as HTMLElement;
       if (idx === 0) {
-        gsap.set(s, { height: 80});
-        gsap.set(desc, { opacity: 1, height: "auto" });
+        const titleHeight = 38;
+        const descHeight = desc.scrollHeight;
+        const totalHeight = titleHeight + descHeight + 10;
+        
+        gsap.set(s, { height: totalHeight});
+        gsap.set(desc, { opacity: 1, height: descHeight });
       } else {
         gsap.set(s, { height: 38});
         gsap.set(desc, { opacity: 0, height: 0 });
@@ -80,6 +89,18 @@ const Experience: React.FC = () => {
     });
     currentCount!.textContent = "1";
     let currentIndex = 0;
+
+    // Helper function to get actual height
+    const getActualHeight = (element: HTMLElement): number => {
+      const clone = element.cloneNode(true) as HTMLElement;
+      clone.style.height = 'auto';
+      clone.style.position = 'absolute';
+      clone.style.visibility = 'hidden';
+      element.parentElement?.appendChild(clone);
+      const height = clone.scrollHeight;
+      element.parentElement?.removeChild(clone);
+      return height;
+    };
 
     const animateTextChange = async (index: number) => {
       return new Promise<void>((resolve) => {
@@ -144,14 +165,19 @@ const Experience: React.FC = () => {
           services.forEach((s, idx) => {
             const desc = s.querySelector("span") as HTMLElement;
             if (idx === activeIndex) {
+              // Calculate the actual height needed
+              const titleHeight = 38; // base title height
+              const descHeight = desc.scrollHeight;
+              const totalHeight = titleHeight + descHeight + 10; // 10px for padding/margin
+              
               gsap.to(s, {
-                height: 80,
+                height: totalHeight,
                 duration: 0.4,
                 ease: "power3.out",
               });
               gsap.to(desc, {
                 opacity: 1,
-                height: "auto",
+                height: descHeight,
                 duration: 0.4,
                 ease: "power3.out",
               });
