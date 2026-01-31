@@ -33,13 +33,22 @@ import TailwindcssSvg from "../../../public/techsvg/tailwindcss";
 import TypescriptSvg from "../../../public/techsvg/typescript";
 import VercelSvg from "../../../public/techsvg/vercel";
 import VisualstudioSvg from "../../../public/techsvg/visualstudio";
+import Socketio from "../../../public/techsvg/socketio";
+import GoogleCloud from "../../../public/techsvg/googleCloud";
+import Gsap from "../../../public/techsvg/gsap";
+import Linux from "../../../public/techsvg/linux";
+import Postman from "../../../public/techsvg/postman";
+import Numpuy from "../../../public/techsvg/numpy";
+import Redis from "../../../public/techsvg/redis";
+import Python from "../../../public/techsvg/puthon";
+import VitSvg from "../../../public/techsvg/vit";
+import FigmaSvg from "../../../public/techsvg/figma";
 
 const TeachStach: React.FC = () => {
   const marquees = [
     {
       title: "MY",
       icons: [
-        AntigravitySvg,
         ChatgptSvg,
         ClaudeSvg,
         CloudinarySvg,
@@ -48,6 +57,11 @@ const TeachStach: React.FC = () => {
         CssSvg,
         D3jsSvg,
         DockerSvg,
+        Socketio,
+        GoogleCloud,
+        Numpuy,
+        Python,
+        AntigravitySvg,
       ],
     },
     {
@@ -62,6 +76,9 @@ const TeachStach: React.FC = () => {
         JavascriptSvg,
         JiraSvg,
         MongodbSvg,
+        Gsap,
+        Redis,
+        FigmaSvg,
       ],
     },
     {
@@ -76,6 +93,8 @@ const TeachStach: React.FC = () => {
         TypescriptSvg,
         VercelSvg,
         VisualstudioSvg,
+        Linux,
+        Postman,
       ],
     },
   ];
