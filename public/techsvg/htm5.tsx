@@ -1,5 +1,5 @@
 import * as React from "react";
-const Html5Svg = (props) => (
+const Html5Svg = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 128 128"

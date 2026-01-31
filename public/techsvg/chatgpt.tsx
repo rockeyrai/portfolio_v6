@@ -1,5 +1,5 @@
 import * as React from "react";
-const ChatgptSvg = (props) => (
+const ChatgptSvg = (props: any) => (
   <svg
     width={2500}
     height={2500}

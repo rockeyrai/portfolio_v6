@@ -1,8 +1,8 @@
 import * as React from "react";
-const GithubSvg = (props) => (
+const GithubSvg = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
+
     width={64}
     height={64}
     viewBox="0 0 32 32"

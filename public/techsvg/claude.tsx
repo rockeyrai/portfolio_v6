@@ -1,5 +1,5 @@
 import * as React from "react";
-const ClaudeSvg = (props) => (
+const ClaudeSvg = (props: any) => (
   <svg
     fill="none"
     height={2500}

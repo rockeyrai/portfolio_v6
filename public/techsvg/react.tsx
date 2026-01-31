@@ -1,8 +1,8 @@
 import * as React from "react";
-const ReactSvg = (props) => (
+const ReactSvg = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    enableBackground="new 0 0 128 128"
+
     viewBox="0 0 128 128"
     id="react"
     {...props}

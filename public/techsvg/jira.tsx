@@ -1,8 +1,8 @@
 import * as React from "react";
-const JiraSvg = (props) => (
+const JiraSvg = (props: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
+
     width={64}
     height={64}
     {...props}

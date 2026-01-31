@@ -1,38 +1,15 @@
 import * as React from "react";
-const CopilotSvg = (props) => (
+const CopilotSvg = (props: any) => (
   <svg
     width={64}
     height={64}
     viewBox="0 0 64 64"
     id="svg1"
-    sodipodi:docname="github_copilot-icon.svg"
-    inkscape:version="1.3.2 (091e20e, 2023-11-25)"
-    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:svg="http://www.w3.org/2000/svg"
     {...props}
   >
     <defs id="defs1" />
-    <sodipodi:namedview
-      id="namedview1"
-      pagecolor="#ffffff"
-      bordercolor="#000000"
-      borderopacity={0.25}
-      inkscape:showpageshadow={2}
-      inkscape:pageopacity={0}
-      inkscape:pagecheckerboard={0}
-      inkscape:deskcolor="#d1d1d1"
-      inkscape:zoom={8.953125}
-      inkscape:cx={32}
-      inkscape:cy={26.024433}
-      inkscape:window-width={1392}
-      inkscape:window-height={997}
-      inkscape:window-x={1852}
-      inkscape:window-y={25}
-      inkscape:window-maximized={0}
-      inkscape:current-layer="svg1"
-    />
+
     <g id="surface1" transform="translate(0,6)">
       <path
         style={{

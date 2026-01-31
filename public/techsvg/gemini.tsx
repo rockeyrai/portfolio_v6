@@ -1,5 +1,5 @@
 import * as React from "react";
-const GeminiSvg = (props) => (
+const GeminiSvg = (props: any) => (
   <svg
     viewBox="0 0 28.01 28"
     xmlns="http://www.w3.org/2000/svg"

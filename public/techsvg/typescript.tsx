@@ -1,39 +1,16 @@
 import * as React from "react";
-const TypeScriptSvg = (props) => (
+const TypeScriptSvg = (props: any) => (
   <svg
     fill="none"
     height={64}
     viewBox="0 0 64 64"
     width={64}
     id="svg2"
-    sodipodi:docname="ts-icon.svg"
-    inkscape:version="1.3.2 (091e20e, 2023-11-25)"
-    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:svg="http://www.w3.org/2000/svg"
     {...props}
   >
     <defs id="defs2" />
-    <sodipodi:namedview
-      id="namedview2"
-      pagecolor="#ffffff"
-      bordercolor="#000000"
-      borderopacity={0.25}
-      inkscape:showpageshadow={2}
-      inkscape:pageopacity={0}
-      inkscape:pagecheckerboard={0}
-      inkscape:deskcolor="#d1d1d1"
-      inkscape:zoom={1.3867188}
-      inkscape:cx={256}
-      inkscape:cy={256}
-      inkscape:window-width={1392}
-      inkscape:window-height={997}
-      inkscape:window-x={0}
-      inkscape:window-y={25}
-      inkscape:window-maximized={0}
-      inkscape:current-layer="svg2"
-    />
+
     <rect
       fill="#3178c6"
       height={64}

@@ -5,35 +5,83 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 import Lenis from "@studio-freight/lenis";
 import styles from "./feature.module.css";
-import Image from "next/image";
+
+import DockerSvg from "../../../public/techsvg/docker";
+import AntigravitySvg from "../../../public/techsvg/antigravity";
+import AxiosSvg from "../../../public/techsvg/axios";
+import ChatgptSvg from "../../../public/techsvg/chatgpt";
+import ClaudeSvg from "../../../public/techsvg/claude";
+import CloudinarySvg from "../../../public/techsvg/cloudinary";
+import ContentfulSvg from "../../../public/techsvg/contentful";
+import CopilotSvg from "../../../public/techsvg/copilot";
+import CssSvg from "../../../public/techsvg/css";
+import D3jsSvg from "../../../public/techsvg/d3js";
+import ExpoioSvg from "../../../public/techsvg/expoio";
+import ExpressjsSvg from "../../../public/techsvg/expressjs";
+import FirebaseSvg from "../../../public/techsvg/firebase";
+import GeminiSvg from "../../../public/techsvg/gemini";
+import GitSvg from "../../../public/techsvg/git";
+import GithubSvg from "../../../public/techsvg/github";
+import Htm5Svg from "../../../public/techsvg/htm5";
+import JavascriptSvg from "../../../public/techsvg/javascript";
+import JiraSvg from "../../../public/techsvg/jira";
+import MongodbSvg from "../../../public/techsvg/mongodb";
+import MysqlSvg from "../../../public/techsvg/mysql";
+import NodejsSvg from "../../../public/techsvg/nodejs";
+import ReactSvg from "../../../public/techsvg/react";
+import ReduxSvg from "../../../public/techsvg/redux";
+import SocketioSvg from "../../../public/techsvg/socketio";
+import StrapiSvg from "../../../public/techsvg/strapi";
+import TailwindcssSvg from "../../../public/techsvg/tailwindcss";
+import TypescriptSvg from "../../../public/techsvg/typescript";
+import VercelSvg from "../../../public/techsvg/vercel";
+import VisualstudioSvg from "../../../public/techsvg/visualstudio";
 
 const TeachStach: React.FC = () => {
   const marquees = [
     {
       title: "MY",
-      images: [
-        "/hero/image2.jpg",
-        "/hero/image3.jpg",
-        "/hero/image1.jpg",
-        "/hero/image5.jpg",
+      icons: [
+        AntigravitySvg,
+        AxiosSvg,
+        ChatgptSvg,
+        ClaudeSvg,
+        CloudinarySvg,
+        ContentfulSvg,
+        CopilotSvg,
+        CssSvg,
+        D3jsSvg,
+        DockerSvg,
       ],
     },
     {
       title: "TECH",
-      images: [
-        "/hero/image2.jpg",
-        "/hero/image3.jpg",
-        "/hero/image1.jpg",
-        "/hero/image5.jpg",
+      icons: [
+        ExpoioSvg,
+        ExpressjsSvg,
+        FirebaseSvg,
+        GeminiSvg,
+        GitSvg,
+        GithubSvg,
+        Htm5Svg,
+        JavascriptSvg,
+        JiraSvg,
+        MongodbSvg,
       ],
     },
     {
       title: "STACK",
-      images: [
-        "/hero/image2.jpg",
-        "/hero/image3.jpg",
-        "/hero/image1.jpg",
-        "/hero/image5.jpg",
+      icons: [
+        MysqlSvg,
+        NodejsSvg,
+        ReactSvg,
+        ReduxSvg,
+        SocketioSvg,
+        StrapiSvg,
+        TailwindcssSvg,
+        TypescriptSvg,
+        VercelSvg,
+        VisualstudioSvg,
       ],
     },
   ];
@@ -139,21 +187,19 @@ const TeachStach: React.FC = () => {
       <section className={`${styles.marquees} ${styles.section}`}>
         {marquees.map((marqueeData, index) => {
           const moveRight = index % 2 === 0;
-          const { title, images } = marqueeData;
+          const { title, icons } = marqueeData;
 
-          const beforeImages = moveRight
-            ? images.slice(0, 1)
-            : images.slice(0, 2);
+          const beforeIcons = moveRight ? icons.slice(0, 3) : icons.slice(0, 4);
 
-          const afterImages = moveRight ? images.slice(1) : images.slice(2);
+          const afterIcons = moveRight ? icons.slice(3) : icons.slice(4);
 
           return (
             <div className={styles["marquee-container"]} key={title}>
               <div className={styles.marquee}>
-                {/* images BEFORE text */}
-                {beforeImages.map((src, i) => (
+                {/* icons BEFORE text */}
+                {beforeIcons.map((Icon, i) => (
                   <div className={styles.item} key={`b-${i}`}>
-                    <Image src={src} alt="" fill style={{ objectFit: "cover" }} />
+                    <Icon style={{ width: "100%", height: "100%" }} />
                   </div>
                 ))}
 
@@ -162,10 +208,10 @@ const TeachStach: React.FC = () => {
                   <h1>{title}</h1>
                 </div>
 
-                {/* images AFTER text */}
-                {afterImages.map((src, i) => (
+                {/* icons AFTER text */}
+                {afterIcons.map((Icon, i) => (
                   <div className={styles.item} key={`a-${i}`}>
-                    <Image src={src} alt="" fill style={{ objectFit: "cover" }} />
+                    <Icon style={{ width: "100%", height: "100%" }} />
                   </div>
                 ))}
               </div>

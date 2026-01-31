@@ -1,5 +1,5 @@
 import * as React from "react";
-const CloudinarySvg = (props) => (
+const CloudinarySvg = (props: any) => (
   <svg
     height={1641}
     preserveAspectRatio="xMidYMid"

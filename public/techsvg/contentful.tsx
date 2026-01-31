@@ -1,11 +1,11 @@
 import * as React from "react";
-const ContentfulSvg = (props) => (
+const ContentfulSvg = (props: any) => (
   <svg
     width="256px"
     height="289px"
     viewBox="0 0 256 289"
     xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
+
     preserveAspectRatio="xMidYMid"
     {...props}
   >

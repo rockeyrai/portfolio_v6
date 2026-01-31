@@ -1,5 +1,5 @@
 import * as React from "react";
-const strapiSvg = (props) => (
+const strapiSvg = (props: any) => (
   <svg
     height={2500}
     viewBox=".24262095 .26549587 243.32256626 243.58072911"

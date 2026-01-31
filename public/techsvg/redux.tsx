@@ -1,5 +1,5 @@
 import * as React from "react";
-const ReduxSvg = (props) => (
+const ReduxSvg = (props: any) => (
   <svg
     width="800px"
     height="800px"
