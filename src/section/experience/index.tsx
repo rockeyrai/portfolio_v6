@@ -6,37 +6,31 @@ import styles from "./Experience.module.css";
 import SplitType from "split-type";
 import Image from "next/image";
 
-const serviceTexts = [
-  ["We transform your ideas into creative solutions."],
-  ["We deliver powerful APIs for scalability."],
-  ["We provide capital stock insights with precision."],
-  ["We build intelligent stock analysis tools."],
-  ["We connect you with reliable brokers."],
+const experienceDate = [
+  ["broadwayinfosys: Aug 2024 - Nov 2024"],
+  ["Peridot pvt : March 2024 - May 2024 "],
+  ["Peridot pvt : Jun 2024 - Dec 2024 "],
+
 ];
 
-const serviceTitles = [
-  "Full-Stack Engineer",
-  "Backend Development",
-  "Capital Markets ",
-  "Stock Analysis ",
-  "Broker Platform ",
+const experienceTitle = [
+  "MERN Stack",
+  "jr Associate Developer",
+  "jr Full-Stack Developer",
+
 ];
 
-const serviceDescriptions = [
+const experienceDescription = [
   "Built and maintained production web applications using modern JavaScript frameworks, focusing on performance, accessibility, and clean UI architecture.",
   "Designed and implemented RESTful APIs and backend services, handling authentication, data persistence, and system scalability.",
-  "Worked with capital market data to model financial instruments, pricing, and market flows for analytical applications.",
-  "Developed internal tools for stock analysis, including indicators, data visualization, and automated insights.",
-  "Integrated broker APIs to enable real-time data exchange, order workflows, and trading-related features.",
+  "Designed and implemented RESTful APIs and backend services, handling authentication, data persistence, and system scalability.",
 ];
 
 
-const serviceImages = [
-  "/exp/image1.jpg",
-  "/exp/image2.jpg",
-  "/exp/image3.jpg",
-  "/exp/image4.webp",
-  "/exp/image5.jpg",
+const experienceImg = [
+  "/exp/image1.webp",
+  "/exp/image2.webp",
+  "/exp/image3.webp",
 ];
 
 const Experience: React.FC = () => {
@@ -67,20 +61,20 @@ const Experience: React.FC = () => {
     if (!stickySection || !serviceImg || !serviceCopyEl) return;
 
     const imgHeight = 250;
-    const totalServices = serviceTexts.length;
+    const totalServices = experienceDate.length;
 
     // Set initial service copy
-    serviceCopyEl.textContent = serviceTexts[0][0];
+    serviceCopyEl.textContent = experienceDate[0][0];
     let currentSplitText = new SplitType(serviceCopyEl);
 
     // Activate first service on load
     services.forEach((s, idx) => {
       const desc = s.querySelector("span") as HTMLElement;
       if (idx === 0) {
-        gsap.set(s, { height: 80, backgroundColor: "#ffcc00" });
+        gsap.set(s, { height: 80});
         gsap.set(desc, { opacity: 1, height: "auto" });
       } else {
-        gsap.set(s, { height: 38, backgroundColor: "#fff" });
+        gsap.set(s, { height: 38});
         gsap.set(desc, { opacity: 0, height: 0 });
       }
     });
@@ -97,7 +91,7 @@ const Experience: React.FC = () => {
           ease: "power3.inOut",
           onComplete: () => {
             currentSplitText.revert();
-            serviceCopyEl.textContent = serviceTexts[index][0];
+            serviceCopyEl.textContent = experienceDate[index][0];
             currentSplitText = new SplitType(serviceCopyEl);
 
             gsap.set(currentSplitText.lines, { opacity: 0, y: 20 });
@@ -152,7 +146,6 @@ const Experience: React.FC = () => {
             if (idx === activeIndex) {
               gsap.to(s, {
                 height: 80,
-                backgroundColor: "#ffcc00",
                 duration: 0.4,
                 ease: "power3.out",
               });
@@ -165,7 +158,6 @@ const Experience: React.FC = () => {
             } else {
               gsap.to(s, {
                 height: 38,
-                backgroundColor: "#fff",
                 duration: 0.4,
                 ease: "power3.out",
               });
@@ -210,7 +202,7 @@ const Experience: React.FC = () => {
       <section className={`${styles.sticky} ${styles.section}`} ref={stickyRef}>
         <div className={styles.col}>
           <div className={styles.services}>
-            {serviceTitles.map((title, idx) => (
+            {experienceTitle.map((title, idx) => (
               <div
                 className={styles.service}
                 key={idx}
@@ -219,7 +211,7 @@ const Experience: React.FC = () => {
                 }}
               >
                 <p>{title}</p>
-                <span>{serviceDescriptions[idx]}</span>
+                <span>{experienceDescription[idx]}</span>
               </div>
             ))}
           </div>
@@ -228,9 +220,9 @@ const Experience: React.FC = () => {
         <div className={styles.col}>
           <div className={styles["service-img-wrapper"]}>
             <div className={styles["service-img"]} ref={serviceImgRef}>
-              {serviceImages.map((src, i) => (
+              {experienceImg.map((src, i) => (
                 <div className={styles.img} key={i}>
-                  <Image src={src} alt="" fill style={{ objectFit: "cover" }} />
+                  <Image src={src} alt="" fill style={{width:"100%", height:"100%", objectFit: "contain" }} />
                 </div>
               ))}
             </div>
@@ -247,7 +239,7 @@ const Experience: React.FC = () => {
         <div className={styles.index}>
           <span ref={currentCountRef}>1</span>
           <span className={styles.separator} ref={separatorRef}></span>
-          <span>{serviceTexts.length}</span>
+          <span>{experienceDate.length}</span>
         </div>
       </section>
 

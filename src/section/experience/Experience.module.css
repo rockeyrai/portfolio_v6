@@ -5,36 +5,6 @@
   height: 100svh;
 }
 
-.hero,
-.outro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: #d5d5d5;
-}
-
-.hero {
-  align-items: flex-end;
-  background: url(../../../public//hero/image1.jpg) no-repeat 50% 50%;
-  background-size: cover;
-  color: #ffff;
-}
-
-.outro {
-  background-color: #ff00ff;
-}
-
-.outro p {
-  text-transform: uppercase;
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 18px;
-  padding: 4px 2px 0 2px;
-  background-color: #000;
-  color: #fff;
-}
-
 .sticky {
   display: flex;
 }
@@ -63,7 +33,6 @@
   width: 100%;
   height: 38px;
   transform: translateY((0px));
-  background-color: #000;
   z-index: -1;
 }
 
@@ -82,25 +51,24 @@
   height: 0;
   overflow: hidden;
   transition: opacity 0.3s ease, height 0.3s ease;
+  color: var(--text2);
+
 }
 
 .service.active span {
   opacity: 1;
   height: auto; /* allow full height */
   margin-top: 5px; /* optional spacing */
+  
 }
 
 .service p {
   text-transform: uppercase;
   font-size: 30px;
   font-weight: 600;
-  color: #d5d5d5;
   transition: color 0.3s;
 }
 
-.service:active p {
-  color: #fff;
-}
 
 .service-img-wrapper {
   position: relative;;
@@ -145,7 +113,7 @@
   left: 50%;
   width: 2.5px;
   height: 80%;
-  background-color: #d5d5d5;
+  background-color: var(--bg);
   transform: translateX(-50%);
   overflow: hidden;
 }
@@ -153,14 +121,13 @@
 .progress {
   width: 100%;
   height: 100%;
-  background-color: #ff00ff;
+  background-color: var(--indicator);
   transform-origin: top;
   transform: scaleY(0);
   transition: transform 0.3s linear;
 }
 
 .service.active {
-  background-color: #ffcc00; /* highlight color */
   transition: background-color 0.3s ease;
 }
 
@@ -170,13 +137,14 @@
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  padding: 4px 2px 2px 2px;
+  width: 6rem;
+  padding: 1em 1.3em;
+  border-radius: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--base-200);
+  /* color: #fff; */
 }
 
 .index span{
@@ -186,6 +154,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: var(--base-100);
 }
 
 
@@ -193,7 +162,7 @@
   display: inline-block;
   width: 20px;
   height: 2px;
-  background-color: #ff00ff;
+  background-color: var(--base-100);
   transform-origin: center;
   transform: scaleX(0);
 }
