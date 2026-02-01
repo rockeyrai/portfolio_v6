@@ -13,7 +13,13 @@
 .serviceHeader{
     width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 4em;
+}
+
+.serviceHeader h1{
+    font-size: 3rem;
 }
 
 .service {
@@ -22,6 +28,7 @@
     height: 150px;
     max-height: 25em;
     border-top:  1px solid rgba(255,255,255, 0.2);
+    overflow: hidden;
 }
 
 .serviceInfo {
@@ -32,6 +39,11 @@
     flex-direction: column;
     justify-content :space-between;
     padding: 1em;
+}
+
+.serviceInfo h1{
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 .serviceImg{
