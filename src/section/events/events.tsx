@@ -188,18 +188,24 @@ const EventList: React.FC = () => {
         <div className={styles.row}>
           <div className={styles.even} ref={event1Ref}>
             <div className={`${styles.img} ${styles.img1}`}></div>
-            <h1>XIDEA 2026</h1>
-            <p>it was the first hackaton i participate</p>
+            <div className={styles.col}>
+              <h1>XIDEA 2026</h1>
+              <p>it was the first hackaton i participate</p>
+            </div>
           </div>
           <div className={styles.even} ref={event2Ref}>
             <div className={`${styles.img} ${styles.img2}`}></div>
-            <h1>tech 2026 exhibition</h1>
-            <p>we put a stall of our project and met others</p>
+            <div className={styles.col}>
+              <h1>XIDEA 2026</h1>
+              <p>it was the first hackaton i participate</p>
+            </div>
           </div>
           <div className={styles.even} ref={event3Ref}>
             <div className={`${styles.img} ${styles.img3}`}></div>
-            <h1>MERN Stack Certificate</h1>
-            <p>i complete my MERN stack course of 3 months</p>
+            <div className={styles.col}>
+              <h1>XIDEA 2026</h1>
+              <p>it was the first hackaton i participate</p>
+            </div>
           </div>
         </div>
       </div>

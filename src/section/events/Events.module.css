@@ -1,7 +1,6 @@
 .section {
   width: 100%;
   padding: 2em;
-  background: blue;
   min-height: 105vh;
 }
 
@@ -19,9 +18,8 @@
 }
 
 .col {
-  flex: 1;
   display: flex;
-  gap: 1em;
+  flex-direction: column;
 }
 
 .mask {
@@ -70,7 +68,7 @@
 .even h1 {
   font-size: 1.5rem;
   font-weight: 600;
-  margin: 0.5em 0 0.25em 0;
+  /* margin: 0.5em 0 0.25em 0; */
   text-transform: uppercase;
   letter-spacing: -0.02em;
   overflow: hidden; /* Hide text that moves from below */
@@ -101,12 +99,12 @@
 
 /* Image backgrounds - Update these paths to your actual images */
 .img1 .mask {
-  background: url("/hero/image1.jpg") no-repeat 50% 50%;
+  background: url("/event/event1.webp") no-repeat 50% 50%;
   background-size: cover;
 }
 
 .img2 .mask {
-  background: url("/hero/image2.jpg") no-repeat 50% 50%;
+  background: url("/event/event01.webp") no-repeat 50% 50%;
   background-size: cover;
 }
 
