@@ -189,22 +189,24 @@ const EventList: React.FC = () => {
           <div className={styles.even} ref={event1Ref}>
             <div className={`${styles.img} ${styles.img1}`}></div>
             <div className={styles.col}>
-              <h1>XIDEA 2026</h1>
-              <p>it was the first hackaton i participate</p>
+              <h1>Startup Fest By ICT</h1>
+              <p>
+              Showcased Portfolio Nepal at Startup Fest by ICT, connecting with founders, developers, and industry professionals while gaining valuable feedback and insights from Nepal’s growing startup ecosystem.
+              </p>
             </div>
           </div>
           <div className={styles.even} ref={event2Ref}>
             <div className={`${styles.img} ${styles.img2}`}></div>
             <div className={styles.col}>
               <h1>XIDEA 2026</h1>
-              <p>it was the first hackaton i participate</p>
+              <p>Participated in my first hackathon at XIDEA 2026, where we built Cultural Lens—a cross-platform PWA that uses image recognition to identify sculptures and artifacts and present their historical and cultural significance.</p>
             </div>
           </div>
           <div className={styles.even} ref={event3Ref}>
             <div className={`${styles.img} ${styles.img3}`}></div>
             <div className={styles.col}>
-              <h1>XIDEA 2026</h1>
-              <p>it was the first hackaton i participate</p>
+              <h1>Upcoming </h1>
+              <p>The journey continues as I explore new opportunities, ideas, and challenges ahead. </p>
             </div>
           </div>
         </div>
