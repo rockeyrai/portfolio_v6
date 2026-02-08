@@ -129,10 +129,10 @@
 }
 
 .menuMediaWrapper {
-  flex: 2;
+position: relative;
   opacity: 0;
   will-change: opacity;
-  max-width: 50%;
+  width: 40%;
   max-height: 100vh;
 }
 

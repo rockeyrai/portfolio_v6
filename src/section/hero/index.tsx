@@ -12,6 +12,8 @@ const HeroOne: React.FC = () => {
   const root = useRef<HTMLDivElement>(null);
   const [heroImg, setHeroImg] = useState("");
 
+  // const heroImg = "/layout/layout6.webp"
+
   useEffect(() => {
     async function loadImages() {
       try {
@@ -134,13 +136,7 @@ const HeroOne: React.FC = () => {
         <section className={styles.hero1}>
           <div className={styles.hero1Inner}>
             <div className={styles.hero1Img}>
-              <Image
-                src={heroImg}
-                alt=""
-                width={800}
-                height={600}
-                loading="lazy"
-              />
+              {heroImg && <Image src={heroImg} alt="" fill loading="lazy" />}
             </div>
             <div className={styles.hero1Content}>
               <div className={styles.hero1Header}>

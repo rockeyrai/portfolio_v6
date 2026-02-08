@@ -26,32 +26,33 @@ const Menu: React.FC = () => {
   const isAnimating = useRef(false);
   const isMenuOpenRef = useRef(false);
 
-  const [navLogo, setNavLogo] = useState("");
-  const [menuImg, setMenuImg] = useState("");
+  const menuImg = "/layout/layout3.webp"
+  // const [navLogo, setNavLogo] = useState("");
+  // const [menuImg, setMenuImg] = useState("");
 
-  useEffect(() => {
-    async function loadImages() {
-      try {
-        const images = await api.getImages("layout");
+  // useEffect(() => {
+  //   async function loadImages() {
+  //     try {
+  //       const images = await api.getImages("layout");
 
-        const hero = images.find((img) => img.id.startsWith("layout5"));
-        const menu = images.find((img) => img.id.startsWith("layout2"));
+  //       const hero = images.find((img) => img.id.startsWith("layout5"));
+  //       const menu = images.find((img) => img.id.startsWith("layout2"));
 
-        if (hero) {
-          setNavLogo(hero.url);
-        }
-        if (menu) {
-          setMenuImg(menu.url);
-        }
+  //       if (hero) {
+  //         setNavLogo(hero.url);
+  //       }
+  //       if (menu) {
+  //         setMenuImg(menu.url);
+  //       }
 
-        console.log("images data", images);
-      } catch (err) {
-        console.error(err.message);
-      }
-    }
+  //       console.log("images data", images);
+  //     } catch (err) {
+  //       console.error(err.message);
+  //     }
+  //   }
 
-    loadImages();
-  }, []);
+  //   loadImages();
+  // }, []);
 
   useEffect(() => {
     gsap.registerPlugin(CustomEase, SplitText);
@@ -265,8 +266,8 @@ const Menu: React.FC = () => {
                 src={menuImg}
                 alt=""
                 fill
-                // sizes="50vw"
-                style={{ objectFit: "cover" }} // or "contain"
+                
+                style={{ objectFit: "contain",width:"100%", height:"100%", }}
                 priority={false}
               />
             )}
