@@ -6,12 +6,38 @@
   flex-direction: row;
 }
 
-.leftcontaner{
+.leftcontaner {
+  width: 50%;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.rightcontaner {
   width: 50%;
 }
 
-.rightcontaner{
-  width: 50%;
+@media (max-width: 1024px) {
+  .leftcontaner {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contactSection {
+    flex-direction: column-reverse; /* Put form first or model first? Usually model first is cooler, but form is functional. Let's do model first. */
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .leftcontaner,
+  .rightcontaner {
+    width: 100%;
+  }
+  .leftcontaner {
+    min-height: 400px;
+  }
 }
 
 
