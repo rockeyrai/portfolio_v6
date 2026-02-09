@@ -19,12 +19,11 @@
   position: relative;
   width: 100%;
   display: flex;
-  justify-content:flex-end;
+  justify-content: flex-end;
   align-items: center;
   pointer-events: all;
   padding: 2em;
   z-index: var(--zIndex-level-4);
-
 }
 
 .menuLogo {
@@ -129,17 +128,19 @@
 }
 
 .menuMediaWrapper {
-position: relative;
+  position: relative;
   opacity: 0;
   will-change: opacity;
-  width: 40%;
+  width: 45%;
   max-height: 100vh;
+  /* background-color: red; */
 }
 
 .menuContentWrapper {
   flex: 3;
   position: relative;
   display: flex;
+  /* background-color: blue; */
 }
 
 .menuContentMain {
@@ -147,6 +148,7 @@ position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  /* background: pink; */
 }
 
 .menuFooter {
@@ -155,7 +157,7 @@ position: relative;
 
 .menuContentMain,
 .menuFooter {
-  width: 75%;
+  width: 90%;
   padding: 2rem;
   display: flex;
   align-items: flex-end;
@@ -169,11 +171,17 @@ position: relative;
 }
 
 .menuCol:nth-child(1) {
-  flex: 3;
+  flex: 1;
 }
 
 .menuCol:nth-child(2) {
-  flex: 2;
+  flex: 1;
+}
+
+.menuRow {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 .menuLink a {
@@ -185,4 +193,8 @@ position: relative;
 .line {
   position: relative;
   will-change: transform;
+}
+
+.menuTag a {
+  font-size: 1.2rem;
 }

@@ -17,7 +17,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 4rem;
+  border-radius: 2rem;
   overflow: hidden;
 }
 
@@ -38,9 +38,21 @@
 }
 
 .hero1Header h1 {
-  font-size: 12rem;
+  font-size: 6rem;
   font-weight: 500;
-  letter-spacing: -0.25rem;
+  letter-spacing: 0.25rem;
+  line-height: 1.3;
+}
+.hero1Header h2 {
+  font-size: 6rem;
+  font-weight: 500;
+  letter-spacing: 0.25rem;
+  line-height: 1.2;
+}
+.hero1Header h3 {
+  font-size: 6rem;
+  font-weight: 500;
+  letter-spacing: 0.25rem;
   line-height: 1;
 }
 
@@ -62,10 +74,11 @@
   width: 25%;
 }
 
-.hero1Footer p {
+.hero1Footer pre {
   width: 25%;
-  text-align: right;
+  text-align: left;
   opacity: 0.5;
+  color: var(--htext);
 }
 
 .hero1Line,
@@ -100,7 +113,7 @@
   }
 
   .hero1Footer h3,
-  .hero1Footer p {
+  .hero1Footer pre {
     width: 100%;
     text-align: left;
   }

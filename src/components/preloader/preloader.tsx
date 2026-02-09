@@ -170,16 +170,14 @@ const Preloader: React.FC = () => {
       <div className={styles.hero1PreloaderProgress}>
         <div className={styles.hero1PreloaderProgressBar}></div>
         <div className={styles.hero1PreloaderLogo}>
-          <h1>Obsidian</h1>
+          <h1>ROCKEY</h1>
         </div>
       </div>
       <div className={styles.hero1PreloaderMask}></div>
       <div className={styles.hero1PreloaderContent}>
         <div className={styles.hero1PreloaderFooter}>
           <p>
-            Space unfolds in light and shadow, where structure finds its quiet
-            rhythm, and time aligns in harmony.
-          </p>
+Try everything you can, chase everything you want—until one moment clicks and changes everything.          </p>
         </div>
       </div>
     </>

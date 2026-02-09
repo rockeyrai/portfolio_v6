@@ -70,13 +70,13 @@ const HeroOne: React.FC = () => {
             type: "chars",
           },
           {
-            key: "heroFooterH3",
-            selector: `.${styles.hero1Footer} h3`,
-            type: "lines",
+            key: "headerChars2",
+            selector: `.${styles.hero1Header} h2`,
+            type: "chars",
           },
           {
-            key: "heroFooterP",
-            selector: `.${styles.hero1Footer} p`,
+            key: "heroFooterH3",
+            selector: `.${styles.hero1Footer} h3`,
             type: "lines",
           },
         ];
@@ -87,10 +87,12 @@ const HeroOne: React.FC = () => {
         gsap.set(
           [
             splits.headerChars.chars,
+            splits.headerChars2.chars,
             splits.heroFooterH3.lines,
-            splits.heroFooterP.lines,
           ],
-          { y: "100%" },
+          {
+            y: "100%",
+          },
         );
 
         gsap.set(`.${styles.hero1Img}`, {
@@ -106,6 +108,16 @@ const HeroOne: React.FC = () => {
           ease: "power4.out",
         })
           .to(
+            splits.headerChars2.chars,
+            {
+              y: 0,
+              stagger: 0.05,
+              duration: 0.8,
+              ease: "power4.out",
+            },
+            "-=0.6",
+          )
+          .to(
             `.${styles.hero1Img}`,
             {
               scale: 1,
@@ -115,7 +127,7 @@ const HeroOne: React.FC = () => {
             "<",
           )
           .to(
-            [splits.heroFooterH3.lines, splits.heroFooterP.lines],
+            splits.heroFooterH3.lines,
             {
               y: 0,
               stagger: 0.1,
@@ -140,15 +152,20 @@ const HeroOne: React.FC = () => {
             </div>
             <div className={styles.hero1Content}>
               <div className={styles.hero1Header}>
-                <h1>Obsidian</h1>
+                <h1>Rockey</h1>
+                <h2>Chamling Rai</h2>
+                {/* <h3>Rai</h3> */}
               </div>
 
               <div className={styles.hero1Footer}>
-                <h3>Space defined through light and silence</h3>
-                <p>
-                  Geometry and balance converge, creating environments that
-                  breathe with ease.
-                </p>
+                <h3>Dev with +8 months experience on fullstack</h3>
+                <pre>
+                  <code>{`for attempt in range(infinite):
+    if succeed():
+        break
+    else:
+        try_again()`}</code>
+                </pre>
               </div>
             </div>
           </div>

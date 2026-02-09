@@ -26,7 +26,7 @@ const Menu: React.FC = () => {
   const isAnimating = useRef(false);
   const isMenuOpenRef = useRef(false);
 
-  const menuImg = "/layout/layout3.webp"
+  const menuImg = "/layout/layout3.webp";
   // const [navLogo, setNavLogo] = useState("");
   // const [menuImg, setMenuImg] = useState("");
 
@@ -266,8 +266,7 @@ const Menu: React.FC = () => {
                 src={menuImg}
                 alt=""
                 fill
-                
-                style={{ objectFit: "contain",width:"100%", height:"100%", }}
+                style={{ objectFit: "contain", width: "100%", height: "100%" }}
                 priority={false}
               />
             )}
@@ -276,31 +275,32 @@ const Menu: React.FC = () => {
             <div className={styles.menuContentMain}>
               <div className={styles.menuCol}>
                 <div className={styles.menuLink}>
-                  <a href="#">Index 1</a>
+                  <a href="#">Home</a>
                 </div>
                 <div className={styles.menuLink}>
-                  <a href="#">Index 2</a>
+                  <a href="#">Web Dev</a>
                 </div>
                 <div className={styles.menuLink}>
-                  <a href="#">Index 3</a>
+                  <a href="#">Moble Dev</a>
                 </div>
                 <div className={styles.menuLink}>
-                  <a href="#">Index 4</a>
+                  <a href="#">Gallery</a>
                 </div>
                 <div className={styles.menuLink}>
-                  <a href="#">Index 5</a>
+                  <a href="#">Extra</a>
                 </div>
               </div>
               <div className={styles.menuCol}>
                 <div className={styles.menuTag}>
-                  <a href="#">web Animations 1</a>
+                  <a href="">Optimization tips</a>
                 </div>
                 <div className={styles.menuTag}>
-                  <a href="#">web Animations 2</a>
+                  <a href="">Tech Experience</a>
                 </div>
-                <div className={styles.menuTag}>
-                  <a href="#">web Animations 3</a>
+                <div className={styles.menuTag} style={{ marginBottom: "1em" }}>
+                  <a href="">Research & Artical</a>
                 </div>
+
                 <GlassRadioGroup
                   options={plans}
                   value={theme}
@@ -309,12 +309,11 @@ const Menu: React.FC = () => {
               </div>
             </div>
             <div className={styles.menuFooter}>
-              <div className={styles.menuCol}>
-                <p>Kirtipur, Kathmandu</p>
-              </div>
-              <div className={styles.menuCol}>
+              <div className={styles.menuRow}>
                 <p>40054, Townplanning</p>
-                <p>rockeyrai234@gmail.com</p>
+                <p>Kirtipur, Kathmandu</p>
+
+                {/* <p>rockeyrai234@gmail.com</p> */}
               </div>
             </div>
           </div>
