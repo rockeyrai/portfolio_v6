@@ -1,6 +1,7 @@
 .containers {
   overflow: hidden;
   width: 100%;
+  background-color: var(--base-100);
 }
 
 .section.marquees {

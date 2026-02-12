@@ -5,6 +5,10 @@
   height: 100svh;
 }
 
+.containers{
+  background: var(--base-100);
+}
+
 .sticky {
   display: flex;
 }
@@ -154,7 +158,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--base-100);
 }
 
 
