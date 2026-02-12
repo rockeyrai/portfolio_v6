@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import dynamic from "next/dynamic";
@@ -27,7 +27,12 @@ type ContactFormInputs = {
   message: string;
 };
 
-const ContactForm: React.FC = () => {
+interface ContactFormProps {
+  isOpen: boolean;
+  shouldRender3D: boolean;
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({ isOpen, shouldRender3D }) => {
   const [playAnimation, setPlayAnimation] = useState(false);
   
   const {
@@ -38,62 +43,89 @@ const ContactForm: React.FC = () => {
   } = useForm<ContactFormInputs>({
     mode: "onBlur",
   });
-console.log(
-  process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-  process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-  process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-);
 
-const onSubmit = async (data: ContactFormInputs) => {
-  try {
-    await emailjs.send(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-      {
-        email: data.email,
-        subject: data.subject,
-        message: data.message,
-      },
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
-    );
+  // Memoize environment variables
+  const emailConfig = useMemo(() => ({
+    serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+    templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+    publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+  }), []);
 
-    console.log("Email sent successfully, triggering animation");
-    
-    // Trigger the 3D model animation on successful send
-    setPlayAnimation(true);
-    
-    reset();
-  } catch (error) {
-    console.error("Email send failed", error);
-    alert("Something went wrong. Please try again.");
-  }
-};
+  // Memoized submit handler
+  const onSubmit = useCallback(async (data: ContactFormInputs) => {
+    try {
+      await emailjs.send(
+        emailConfig.serviceId,
+        emailConfig.templateId,
+        {
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+        },
+        emailConfig.publicKey,
+      );
 
-const handleAnimationComplete = () => {
-  console.log("Animation complete callback received");
-  // Reset animation state after it completes
-  setTimeout(() => {
-    setPlayAnimation(false);
-    console.log("Animation state reset");
-  }, 1000);
-};
+      console.log("Email sent successfully, triggering animation");
+      
+      // Trigger the 3D model animation on successful send
+      setPlayAnimation(true);
+      
+      reset();
+    } catch (error) {
+      console.error("Email send failed", error);
+      alert("Something went wrong. Please try again.");
+    }
+  }, [emailConfig, reset]);
 
+  // Memoized animation complete handler
+  const handleAnimationComplete = useCallback(() => {
+    console.log("Animation complete callback received");
+    // Reset animation state after it completes
+    setTimeout(() => {
+      setPlayAnimation(false);
+      console.log("Animation state reset");
+    }, 1000);
+  }, []);
+
+  // Memoize form fields configuration
+  const formFields = useMemo(() => ({
+    email: {
+      type: "email" as const,
+      placeholder: "john@example.com",
+      label: "Email Address *",
+      validation: { required: "Email is required" }
+    },
+    subject: {
+      type: "text" as const,
+      placeholder: "Job / Freelance / Collaboration",
+      label: "Subject *",
+      validation: { required: "Subject is required" }
+    },
+    message: {
+      rows: 5,
+      placeholder: "Tell me about your idea...",
+      label: "Message *",
+      validation: { required: "Message is required" }
+    }
+  }), []);
 
   return (
     <section className={styles.contactSection}>
       <div className={styles.leftcontaner}>
-        <Model3DViewer 
-          playAnimation={playAnimation} 
-          onAnimationComplete={handleAnimationComplete}
-        />
+        {shouldRender3D && (
+          <Model3DViewer 
+            playAnimation={playAnimation} 
+            onAnimationComplete={handleAnimationComplete}
+          />
+        )}
       </div>
       <div className={styles.rightcontaner}>
         <header className={styles.contactHeader}>
-          <h2>Let’s Work Together</h2>
+          <h2>Let's Work Together</h2>
           <p>
             Have a project, role, or just want to say hi?
             <br />
-            Fill out the form and I’ll get back to you.
+            Fill out the form and I'll get back to you.
           </p>
         </header>
 
@@ -104,54 +136,64 @@ const handleAnimationComplete = () => {
         >
           <div className="flex w-full gap-2">
             <div className={styles.formGroup}>
-              <label>Email Address *</label>
+              <label>{formFields.email.label}</label>
               <input
-                type="email"
-                placeholder="john@example.com"
-                {...register("email", {
-                  required: "Email is required",
-                })}
+                type={formFields.email.type}
+                placeholder={formFields.email.placeholder}
+                {...register("email", formFields.email.validation)}
+                aria-invalid={errors.email ? "true" : "false"}
               />
               {errors.email && (
-                <span className={styles.error}>{errors.email.message}</span>
+                <span className={styles.error} role="alert">
+                  {errors.email.message}
+                </span>
               )}
             </div>
 
             <div className={styles.formGroup}>
-              <label>Subject *</label>
+              <label>{formFields.subject.label}</label>
               <input
-                type="text"
-                placeholder="Job / Freelance / Collaboration"
-                {...register("subject", {
-                  required: "Subject is required",
-                })}
+                type={formFields.subject.type}
+                placeholder={formFields.subject.placeholder}
+                {...register("subject", formFields.subject.validation)}
+                aria-invalid={errors.subject ? "true" : "false"}
               />
               {errors.subject && (
-                <span className={styles.error}>{errors.subject.message}</span>
+                <span className={styles.error} role="alert">
+                  {errors.subject.message}
+                </span>
               )}
             </div>
           </div>
 
           <div className={styles.formGroup}>
-            <label>Message *</label>
+            <label>{formFields.message.label}</label>
             <textarea
-              rows={5}
-              placeholder="Tell me about your idea..."
-              {...register("message", {
-                required: "Message is required",
-              })}
+              rows={formFields.message.rows}
+              placeholder={formFields.message.placeholder}
+              {...register("message", formFields.message.validation)}
+              aria-invalid={errors.message ? "true" : "false"}
             />
             {errors.message && (
-              <span className={styles.error}>{errors.message.message}</span>
+              <span className={styles.error} role="alert">
+                {errors.message.message}
+              </span>
             )}
           </div>
           <button
             className={styles.submitButton}
             type="submit"
             disabled={isSubmitting}
+            aria-busy={isSubmitting}
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </button>
+
+          {isSubmitSuccessful && !isSubmitting && (
+            <div className={styles.successMessage} role="status">
+              Message sent successfully!
+            </div>
+          )}
         </form>
       </div>
     </section>
