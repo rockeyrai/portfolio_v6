@@ -172,18 +172,46 @@
 
 
 @media (max-width:700px){
+
+  .containers{
+    padding: 1rem;
+    /* background: red; */
+  }
+
+  .col{
+    /* background: white; */
+    flex: none;
+    /* height: 30vh; */
+  }
+
+  .service-copy {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .services p{
+
+    font-size: 1.5rem;
+    }
   .sticky{
-    flex-direction: column;
-    gap: 2rem;
+    flex-direction:column-reverse;
+    justify-content: center;
+
+    /* gap: 2rem; */
   }
 
   .col:nth-child(1){
-    padding-top: 25%;
     justify-content: flex-start;
+    padding-top: 15%;
+
   }
 
   .col:nth-child(2){
     /* display: flex; */
+    padding-top: 5%;
+
     flex-direction: column;
     gap:1.5rem ;
   }
@@ -193,12 +221,12 @@
   }
 
   .service-copy p{
-    font-size: 14px;
+    font-size: 1.2rem;
   }
 
   .progress-bar {
     top: unset;
-    top: 10%;
+    top: 15%;
     left: 10%;
     width: 80%; /* make it horizontal */
     height: 2.5px;
