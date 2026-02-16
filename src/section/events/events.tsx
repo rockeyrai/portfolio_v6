@@ -181,6 +181,9 @@ const EventList: React.FC = () => {
 
   return (
     <section className={styles.section}>
+      <h1>
+        Event Preview
+      </h1>
       <div
         className={styles.heroImgs}
         ref={containerRef as React.RefObject<HTMLDivElement>}

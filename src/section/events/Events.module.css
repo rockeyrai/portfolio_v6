@@ -5,6 +5,11 @@
   background-color: var(--base-100);
 }
 
+.section h1{
+  font-size: 3em;
+  text-align: center;
+  font-weight: 600;
+}
 .row {
   width: 100%;
   display: grid;
@@ -15,12 +20,15 @@
 .even {
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
   gap: 1em;
 }
 
 .col {
   display: flex;
   flex-direction: column;
+  align-items: center;
   overflow: hidden;
 }
 
@@ -144,7 +152,9 @@
     margin-top: 5em;
     padding: 1em;
   }
-
+.even{
+  margin-bottom: 1.4em;
+}
   .even h1 {
     font-size: 1.25rem;
   }
