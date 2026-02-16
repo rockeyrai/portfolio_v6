@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
@@ -41,10 +41,18 @@ import Postman from "../../../public/techsvg/postman";
 import Numpuy from "../../../public/techsvg/numpy";
 import Redis from "../../../public/techsvg/redis";
 import Python from "../../../public/techsvg/puthon";
-import VitSvg from "../../../public/techsvg/vit";
 import FigmaSvg from "../../../public/techsvg/figma";
 
 const TeachStach: React.FC = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 900);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const marquees = [
     {
       title: "MY",
@@ -202,9 +210,13 @@ const TeachStach: React.FC = () => {
           const moveRight = index % 2 === 0;
           const { title, icons } = marqueeData;
 
-          const beforeIcons = moveRight ? icons.slice(0, 3) : icons.slice(0, 4);
+          const beforeIcons = moveRight
+            ? icons.slice(0, isMobile ? 2 : 3)
+            : icons.slice(0, isMobile ? 2 : 4);
 
-          const afterIcons = moveRight ? icons.slice(5) : icons.slice(6);
+          const afterIcons = moveRight
+            ? icons.slice(isMobile ? 4 : 5)
+            : icons.slice(isMobile ? 4 : 6);
 
           return (
             <div className={styles["marquee-container"]} key={title}>
