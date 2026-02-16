@@ -60,3 +60,22 @@
   overflow: hidden;
   position: relative;
 }
+
+@media (max-width: 700px) {
+  .service {
+    flex-direction: column-reverse;
+    max-height: 40em;
+    gap: 1em;
+  }
+  .serviceImg {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  padding: 0;
+
+  }
+  .img {
+    width: 100%;
+  }
+}

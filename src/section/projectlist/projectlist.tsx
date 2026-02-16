@@ -81,7 +81,7 @@ const ProjectList: React.FC = () => {
         scrub: true,
         onUpdate: (self) => {
           const progress = self.progress;
-          const newHeight = 150 + 300 * progress;
+          const newHeight = 150 + 700 * progress;
 
           gsap.to(service, {
             height: `${newHeight}px`,
