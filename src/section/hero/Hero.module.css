@@ -92,10 +92,30 @@
 /* Responsive */
 @media (max-width: 700px) {
   .hero1Inner {
-    border-radius: 3rem;
+    border-radius: 2rem;
   }
 
   .hero1Header h1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    font-size: 4rem;
+    letter-spacing: 0;
+  }
+    .hero1Header h2 {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    font-size: 3.5rem;
+    letter-spacing: 0;
+  }
+    .hero1Header h3 {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -116,6 +136,7 @@
   .hero1Footer pre {
     width: 100%;
     text-align: left;
+    margin-bottom:3rem;
   }
 
   .hero1Footer h3 {
