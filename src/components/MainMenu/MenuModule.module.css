@@ -198,3 +198,26 @@
 .menuTag a {
   font-size: 1.2rem;
 }
+
+@media (max-width: 699px) {
+  .menuMediaWrapper {
+    display: none;
+  }
+  .menuContentWrapper{
+    /* flex-direction: column; */
+    /* background-color: blue; */
+  }
+
+  .menuContentMain{
+    flex-direction: column;
+    /* background-color: red; */
+    /* justify-content: end; */
+    align-items: start;
+  }
+  .menuCol{
+    /* background-color: blue; */
+  }
+  .menuFooter{
+    margin-bottom: 4em;
+  }
+}

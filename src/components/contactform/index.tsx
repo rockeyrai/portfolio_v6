@@ -134,7 +134,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isOpen, shouldRender3D }) => 
           onSubmit={handleSubmit(onSubmit)}
           noValidate
         >
-          <div className="flex w-full gap-2">
+          <div className={styles.topForm}>
             <div className={styles.formGroup}>
               <label>{formFields.email.label}</label>
               <input

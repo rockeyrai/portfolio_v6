@@ -260,17 +260,24 @@ const Menu: React.FC = () => {
         }`}
       >
         <div className={styles.menuOverlayContent}>
-          <div className={styles.menuMediaWrapper}>
-            {menuImg && (
-              <Image
-                src={menuImg}
-                alt=""
-                fill
-                style={{ objectFit: "contain", width: "100%", height: "100%" }}
-                priority={false}
-              />
-            )}
-          </div>
+          {
+            <div className={styles.menuMediaWrapper}>
+              {menuImg && (
+                <Image
+                  src={menuImg}
+                  alt=""
+                  fill
+                  style={{
+                    objectFit: "contain",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                  priority={false}
+                />
+              )}
+            </div>
+          }
+
           <div className={styles.menuContentWrapper}>
             <div className={styles.menuContentMain}>
               <div className={styles.menuCol}>
