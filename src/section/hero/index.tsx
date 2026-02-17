@@ -7,6 +7,7 @@ import styles from "./Hero.module.css";
 import { animationController } from "@/lib/animation/preloadHero";
 import { api } from "@/lib/api";
 import Image from "next/image";
+import PortfolioDashboard from "@/components/WeatherandExchange/main";
 
 const HeroOne: React.FC = () => {
   const root = useRef<HTMLDivElement>(null);
@@ -156,6 +157,7 @@ const HeroOne: React.FC = () => {
                 <h2>Chamling Rai</h2>
                 {/* <h3>Rai</h3> */}
               </div>
+              <PortfolioDashboard />
 
               <div className={styles.hero1Footer}>
                 <h3>Dev with +8 months experience on fullstack</h3>
