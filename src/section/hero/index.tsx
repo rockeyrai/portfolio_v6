@@ -151,13 +151,14 @@ const HeroOne: React.FC = () => {
             <div className={styles.hero1Img}>
               {heroImg && <Image src={heroImg} alt="" fill loading="lazy" />}
             </div>
+            <PortfolioDashboard />
+
             <div className={styles.hero1Content}>
               <div className={styles.hero1Header}>
                 <h1>Rockey</h1>
                 <h2>Chamling Rai</h2>
                 {/* <h3>Rai</h3> */}
               </div>
-              <PortfolioDashboard />
 
               <div className={styles.hero1Footer}>
                 <h3>Dev with +8 months experience on fullstack</h3>

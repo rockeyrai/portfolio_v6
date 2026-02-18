@@ -1,4 +1,7 @@
 export interface WeatherForecast {
+  isDay: boolean;
+  condition: string;
+  weatherCode: number;
   date: string;
   maxTemp: number;
   minTemp: number;

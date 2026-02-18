@@ -3,8 +3,13 @@
 import React, { useEffect, useState } from "react";
 import { CurrencyService } from "./currencyService";
 import { WeatherService } from "./weatherService";
+import { Moon, Sun, Cloud, TrendingUp } from "lucide-react";
+import styles from "./main.module.css";
 
 type WeatherDay = {
+  isDay: boolean;
+  condition: string;
+  weatherCode: number;
   date: string;
   maxTemp: number;
   minTemp: number;
@@ -25,55 +30,107 @@ export default function PortfolioDashboard() {
   useEffect(() => {
     async function loadDashboard() {
       try {
-        const weatherData = await WeatherService.getKathmanduForecast();
-        const currencyData = await CurrencyService.getNPRRates();
-
+        const [weatherData, currencyData] = await Promise.all([
+          WeatherService.getKathmanduForecast(),
+          CurrencyService.getNPRRates(),
+        ]);
         setWeather(weatherData);
         setCurrency(currencyData);
       } catch (err) {
-        const error = err as Error;
-        setError(error.message);
+        setError(err instanceof Error ? err.message : "An error occurred");
       } finally {
         setLoading(false);
       }
     }
-
     loadDashboard();
   }, []);
 
-  if (loading) return <div>Loading dashboard...</div>;
-  if (error) return <div style={{ color: "red" }}>Error: {error}</div>;
+  // Helper to get flag URLs (Mapping common currencies)
+  const getFlagUrl = (code: string) => {
+    const mapping: Record<string, string> = {
+      USD: "us", EUR: "eu", GBP: "gb", AUD: "au", 
+      CAD: "ca", JPY: "jp", CNY: "cn", INR: "in"
+    };
+    const countryCode = mapping[code] || code.substring(0, 2).toLowerCase();
+    return `https://flagcdn.com/w40/${countryCode}.png`;
+  };
+
+  if (loading) return <div className={styles.loader}>Loading dashboard...</div>;
+  if (error) return <div className={styles.error}>Error: {error}</div>;
+
+  const today = weather[0];
 
   return (
-    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
-      <h2>🏔️ Kathmandu Weather (Next 5 Days)</h2>
-      <ul>
-        {weather.map((day, index) => (
-          <li key={index}>
-            {day.date}: High {day.maxTemp}°C / Low {day.minTemp}°C
-          </li>
-        ))}
-      </ul>
+    <div className={styles.pageWrapper}>
+      <main className={styles.dashboardGrid}>
+        {/* Weather Section */}
+        {/* <section className={styles.card}>
+          <div className={styles.cardHeader}>
+            <div className={styles.titleGroup}>
+              <Cloud size={20} />
+              <h2>Kathmandu Weather</h2>
+            </div>
+            {today?.isDay ? <Sun className={styles.sunIcon} /> : <Moon className={styles.moonIcon} />}
+          </div>
 
-      <h2 style={{ marginTop: "30px" }}>💸 NPR Exchange Rates</h2>
-      {currency && (
-        <div>
-          <p>
-            Base: 1 {currency.base} (Updated: {currency.date})
-          </p>
-          <ul>
-            {Object.entries(currency.rates).map(([symbol, rate]) => {
-              const inverted = 1 / rate;
+          <div className={styles.currentWeather}>
+            <span className={styles.bigTemp}>{today?.maxTemp}°C</span>
+            <span className={styles.conditionBadge}>{today?.condition}</span>
+          </div>
 
-              return (
-                <li key={symbol}>
-                  1 {symbol} = Rs. {inverted.toFixed(2)}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
+          <table className={styles.weatherTable}>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Condition</th>
+                <th style={{ textAlign: "right" }}>H / L</th>
+              </tr>
+            </thead>
+            <tbody>
+              {weather.map((day, index) => (
+                <tr key={index}>
+                  <td>{index === 0 ? "Today" : day.date}</td>
+                  <td>{day.condition}</td>
+                  <td style={{ textAlign: "right" }}>
+                    <span className={styles.high}>{day.maxTemp}°</span> / <span className={styles.low}>{day.minTemp}°</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section> */}
+
+        {/* Currency Section */}
+        {/* <section className={styles.card}>
+          <div className={styles.cardHeader}>
+            <div className={styles.titleGroup}>
+              <TrendingUp size={20} />
+              <h2>Exchange Rates</h2>
+            </div>
+            <span className={styles.timestamp}>Ref: NPR</span>
+          </div>
+
+          <div className={styles.currencyList}>
+            {currency && Object.entries(currency.rates).map(([symbol, rate]) => (
+              <div key={symbol} className={styles.currencyRow}>
+                <div className={styles.currencyInfo}>
+                  <img 
+                    src={getFlagUrl(symbol)} 
+                    alt={symbol} 
+                    className={styles.flag}
+                    onError={(e) => (e.currentTarget.style.display = 'none')}
+                  />
+                  <span className={styles.symbol}>{symbol}</span>
+                </div>
+                <div className={styles.price}>
+                  Rs. {(1 / rate).toFixed(2)}
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className={styles.footerNote}>Updated: {currency?.date}</p>
+        </section> */}
+      </main>
     </div>
   );
 }

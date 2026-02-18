@@ -1,0 +1,138 @@
+.pageWrapper {
+  /* min-height: 100vh; */
+  padding: 0.5rem;
+  color: #1e293b;
+  font-family: 'Inter', -apple-system, sans-serif;
+  position: absolute;
+  right: 5%;
+  top:40%;
+  transform: translateY(-50%);
+}
+
+
+.dashboardGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 300px;
+  margin-inline: auto;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 0.5rem;
+
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #64748b;
+}
+
+.cardHeader h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #334155;
+}
+
+/* Weather Specifics */
+.currentWeather {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.bigTemp {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.conditionBadge {
+  background: #f1f5f9;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.weatherTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.weatherTable th {
+  text-align: left;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+  /* padding-bottom: 0.75rem; */
+}
+
+.weatherTable td {
+  padding: 0.5rem 0;
+  border-top: 1px solid #f1f5f9;
+  font-size: 0.9375rem;
+}
+
+.high { font-weight: 600; color: #ef4444; }
+.low { color: #3b82f6; }
+
+/* Currency Specifics */
+.currencyList {
+  display: flex;
+  flex-direction: column;
+}
+
+.currencyRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.currencyInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.flag {
+  width: 24px;
+  height: 18px;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.symbol {
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.price {
+  font-weight: 700;
+  text-align: start;
+}
+
+.footerNote {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.sunIcon { color: #f59e0b; }
+.moonIcon { color: #6366f1; }
