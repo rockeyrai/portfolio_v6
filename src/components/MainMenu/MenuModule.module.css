@@ -17,13 +17,15 @@
 
 .menuBar {
   position: relative;
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   justify-content: flex-end;
   align-items: center;
   pointer-events: all;
-  padding: 2em;
+  padding-right: 2em;
+  padding-top: 1.5em;
   z-index: var(--zIndex-level-4);
+  /* background: white; */
 }
 
 .menuLogo {
@@ -42,7 +44,6 @@
 }
 
 .menuToggleBtnOpen {
-  z-index: var(--zIndex-level-4);
 }
 
 .menuToggleBtnClose {
